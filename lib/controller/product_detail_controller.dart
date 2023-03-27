@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+
 
 class ProductDetailController with ChangeNotifier {
   int amount = 1;
@@ -10,21 +13,21 @@ class ProductDetailController with ChangeNotifier {
 
   Widget getProductDataRowWidget(String label, {Widget? customWidget}) {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: 20,
         bottom: 20,
       ),
       child: Row(
         children: [
           AppText(text: label, fontWeight: FontWeight.w600, fontSize: 16),
-          Spacer(),
+          const Spacer(),
           if (customWidget != null) ...[
             customWidget,
-            SizedBox(
+            const SizedBox(
               width: 20,
             )
           ],
-          Icon(
+          const Icon(
             Icons.arrow_forward_ios,
             size: 20,
           )
@@ -35,12 +38,12 @@ class ProductDetailController with ChangeNotifier {
 
   Widget nutritionWidget() {
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: Color(0xffEBEBEB),
+        color: const Color(0xffEBEBEB),
         borderRadius: BorderRadius.circular(5),
       ),
-      child: AppText(
+      child: const AppText(
         text: "100gm",
         fontWeight: FontWeight.w600,
         fontSize: 12,
@@ -51,7 +54,7 @@ class ProductDetailController with ChangeNotifier {
 
   Widget ratingWidget() {
     Widget starIcon() {
-      return Icon(
+      return const Icon(
         Icons.star,
         color: Color(0xffF3603F),
         size: 20,
@@ -72,22 +75,22 @@ class ProductDetailController with ChangeNotifier {
   Widget getImageHeaderWidget(groceryItem, heroSuffix) {
     return Container(
       height: 250,
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
       width: double.maxFinite,
       decoration: BoxDecoration(
         color: Colors.blue,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(25),
           bottomRight: Radius.circular(25),
         ),
-        gradient: new LinearGradient(
+        gradient: LinearGradient(
             colors: [
               const Color(0xFF3366FF).withOpacity(0.1),
               const Color(0xFF3366FF).withOpacity(0.09),
             ],
             begin: const FractionalOffset(0.0, 0.0),
             end: const FractionalOffset(0.0, 1.0),
-            stops: [0.0, 1.0],
+            stops: const [0.0, 1.0],
             tileMode: TileMode.clamp),
       ),
       child: Hero(

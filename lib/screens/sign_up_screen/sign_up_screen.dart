@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/controller/sign_up_controller.dart';
-import 'package:grocery_app/helpers/app_sizes.dart';
-import 'package:grocery_app/common_widgets/custom_button_widget.dart';
+import 'package:moonlight/common_widgets/custom_button_widget.dart';
+import 'package:moonlight/controller/sign_up_controller.dart';
+import 'package:moonlight/helpers/app_localization.dart';
+import 'package:moonlight/helpers/app_sizes.dart';
+
 import 'package:provider/provider.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -22,26 +24,28 @@ class SignUpScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Sign Up',
+                Text(
+                  AppLocalization.of(context)!.translate('Sign Up'),
                   style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                const Text('Enter your credentials to continue'),
+                Text(
+                  AppLocalization.of(context)!.translate('credential'),
+                ),
                 AppSizes.szdh40,
                 TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Username',
+                  decoration: InputDecoration(
+                    labelText: AppLocalization.of(context)!.translate('User'),
                     hintText: 'Afssar Hossen Shuvo',
                     hintStyle: TextStyle(color: Colors.black),
                   ),
                 ),
                 AppSizes.szdh40,
                 TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
+                  decoration: InputDecoration(
+                    labelText: AppLocalization.of(context)!.translate('Email'),
                     hintText: 'imshuvo97@gmail.com',
                     hintStyle: TextStyle(color: Colors.black),
                     suffixIcon: Icon(Icons.remove_red_eye_sharp),
@@ -49,8 +53,9 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 AppSizes.szdh40,
                 TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Password',
+                  decoration: InputDecoration(
+                    labelText:
+                        AppLocalization.of(context)!.translate('Password'),
                     alignLabelWithHint: true,
                     hintText: '********',
                     hintStyle: TextStyle(color: Colors.black),
@@ -60,24 +65,25 @@ class SignUpScreen extends StatelessWidget {
                 AppSizes.szdh20,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Text('Forgot password?'),
+                  children: [
+                    Text(AppLocalization.of(context)!
+                        .translate('Forgot password?')),
                   ],
                 ),
                 AppSizes.szdh30,
                 CustomButtonWidget(
-                  text: 'Sign Up',
+                  text: AppLocalization.of(context)!.translate('Sign Up'),
                   onTap: () {
                     showDialog(
                       context: context,
                       builder: (context) {
                         return Dialog(
-                          child: Container(
+                          child: SizedBox(
                             height: 100,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   'Account created successfully',
                                   style: TextStyle(
                                     fontSize: 20,
@@ -87,7 +93,7 @@ class SignUpScreen extends StatelessWidget {
                                   onPressed: () {
                                     signUpController.navigateToSignIn(context);
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     'OK',
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
@@ -104,12 +110,14 @@ class SignUpScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Already have an account?'),
+                    Text(AppLocalization.of(context)!.translate('Having?')),
                     TextButton(
                       onPressed: () {
                         signUpController.navigateToPreviousScreen(context);
                       },
-                      child: const Text('Sign in'),
+                      child: Text(
+                        AppLocalization.of(context)!.translate('Sign in'),
+                      ),
                     ),
                   ],
                 ),

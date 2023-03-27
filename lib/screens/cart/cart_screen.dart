@@ -1,8 +1,11 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/custom_button_widget.dart';
-import 'package:grocery_app/helpers/column_with_seprator.dart';
-import 'package:grocery_app/models/grocery_model.dart';
-import 'package:grocery_app/widgets/chart_item_widget.dart';
+import 'package:moonlight/common_widgets/custom_button_widget.dart';
+import 'package:moonlight/helpers/app_localization.dart';
+import 'package:moonlight/helpers/column_with_seprator.dart';
+import 'package:moonlight/models/grocery_model.dart';
+import 'package:moonlight/widgets/chart_item_widget.dart';
 
 import 'widget/bottom_sheet_widget.dart';
 
@@ -16,7 +19,7 @@ class CartScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         title: Text(
-          "My Cart",
+          AppLocalization.of(context)!.translate('My Cart'),
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
@@ -30,7 +33,7 @@ class CartScreen extends StatelessWidget {
                   addToLastChild: false,
                   widgets: demoItems.map((e) {
                     return Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 25,
                       ),
                       width: double.maxFinite,
@@ -39,8 +42,8 @@ class CartScreen extends StatelessWidget {
                       ),
                     );
                   }).toList(),
-                  seperator: Padding(
-                    padding: const EdgeInsets.symmetric(
+                  seperator: const Padding(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 25,
                     ),
                     child: Divider(
@@ -49,11 +52,11 @@ class CartScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 thickness: 1,
               ),
               CustomButtonWidget(
-                text: "Go To Check Out",
+                text: AppLocalization.of(context)!.translate('check'),
                 onTap: () {
                   showModalBottomSheet(
                       context: context,

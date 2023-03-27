@@ -1,5 +1,9 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/styles/colors.dart';
+
+import '../styles/colors.dart';
+
 
 class ItemCounterWidget extends StatefulWidget {
   final Function? onAmountChanged;
@@ -18,16 +22,16 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
     return Row(
       children: [
         iconWidget(Icons.remove,
-            iconColor: AppColors.darkGrey, onPressed: decrementAmount),
-        SizedBox(width: 18),
-        Container(
+            iconColor: AppColor.darkGrey, onPressed: decrementAmount),
+        const SizedBox(width: 18),
+        SizedBox(
             width: 30,
             child: Center(
                 child: getText(
                     text: amount.toString(), fontSize: 18, isBold: true))),
-        SizedBox(width: 18),
+        const SizedBox(width: 18),
         iconWidget(Icons.add,
-            iconColor: AppColors.primaryColor, onPressed: incrementAmount)
+            iconColor: AppColor.primaryColor, onPressed: incrementAmount)
       ],
     );
   }
@@ -66,7 +70,7 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(17),
           border: Border.all(
-            color: Color(0xffE2E2E2),
+            color: const Color(0xffE2E2E2),
           ),
         ),
         child: Center(

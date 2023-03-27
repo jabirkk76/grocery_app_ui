@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/controller/on_board_controller.dart';
-import 'package:grocery_app/helpers/app_sizes.dart';
+import 'package:moonlight/controller/on_board_controller.dart';
+import 'package:moonlight/helpers/app_sizes.dart';
+
 
 import 'package:provider/provider.dart';
 

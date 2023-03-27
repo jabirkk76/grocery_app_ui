@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/models/grocery_model.dart';
-import 'package:grocery_app/screens/product_details_screen/product_details_screen.dart';
-import 'package:grocery_app/widgets/grocery_item_card_widget.dart';
+
+import 'package:moonlight/models/grocery_model.dart';
+import 'package:moonlight/screens/product_details_screen/product_details_screen.dart';
+import 'package:moonlight/widgets/grocery_item_card_widget.dart';
 
 import '../styles/colors.dart';
 
 class HomeController with ChangeNotifier {
   Widget padded(Widget widget) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: widget,
     );
   }
 
   Widget getHorizontalItemSlider(List<GroceryItemModel> items) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       height: 250,
       child: ListView.separated(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         itemCount: items.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
@@ -32,7 +33,7 @@ class HomeController with ChangeNotifier {
           );
         },
         separatorBuilder: (BuildContext context, int index) {
-          return SizedBox(
+          return const SizedBox(
             width: 20,
           );
         },
@@ -57,15 +58,15 @@ class HomeController with ChangeNotifier {
       children: [
         Text(
           text,
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        Spacer(),
-        Text(
+        const Spacer(),
+        const Text(
           "See All",
           style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColors.primaryColor),
+              color: AppColor.primaryColor),
         ),
       ],
     );

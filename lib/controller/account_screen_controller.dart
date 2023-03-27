@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:moonlight/helpers/app_localization.dart';
 
 import '../helpers/account_item.dart';
 import '../styles/colors.dart';
 
 class AccountScreenController with ChangeNotifier {
-  List<AccountItem> accountItems = [
-    AccountItem("Orders", "assets/icons/account_icons/orders_icon.svg"),
-    AccountItem("My Details", "assets/icons/account_icons/details_icon.svg"),
-    AccountItem(
-        "Delivery Access", "assets/icons/account_icons/delivery_icon.svg"),
-    AccountItem(
-        "Payment Methods", "assets/icons/account_icons/payment_icon.svg"),
-    AccountItem("Promo Card", "assets/icons/account_icons/promo_icon.svg"),
-    AccountItem(
-        "Notifications", "assets/icons/account_icons/notification_icon.svg"),
-    AccountItem("Help", "assets/icons/account_icons/help_icon.svg"),
-    AccountItem("About", "assets/icons/account_icons/about_icon.svg"),
-  ];
+  List<AccountItem> account(BuildContext context) {
+    List<AccountItem> accountItems = [
+      AccountItem(AppLocalization.of(context)!.translate("orders"),
+          "assets/icons/account_icons/orders_icon.svg"),
+      AccountItem(AppLocalization.of(context)!.translate('my details'),
+          "assets/icons/account_icons/details_icon.svg"),
+      AccountItem(AppLocalization.of(context)!.translate("Delivery Access"),
+          "assets/icons/account_icons/delivery_icon.svg"),
+      AccountItem(AppLocalization.of(context)!.translate("Payment Methods"),
+          "assets/icons/account_icons/payment_icon.svg"),
+      AccountItem(AppLocalization.of(context)!.translate("Promo Card"),
+          "assets/icons/account_icons/promo_icon.svg"),
+      AccountItem(AppLocalization.of(context)!.translate("Notifications"),
+          "assets/icons/account_icons/notification_icon.svg"),
+      AccountItem(AppLocalization.of(context)!.translate("Help"),
+          "assets/icons/account_icons/help_icon.svg"),
+      AccountItem(AppLocalization.of(context)!.translate("About"),
+          "assets/icons/account_icons/about_icon.svg"),
+    ];
+    return accountItems;
+  }
 
   Widget logoutButton() {
     return Container(
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(horizontal: 25),
+      margin: const EdgeInsets.symmetric(horizontal: 25),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           visualDensity: VisualDensity.compact,
@@ -30,11 +39,11 @@ class AccountScreenController with ChangeNotifier {
             borderRadius: BorderRadius.circular(18.0),
           ),
           elevation: 0,
-          backgroundColor: Color(0xffF2F3F2),
-          textStyle: TextStyle(
+          backgroundColor: const Color(0xffF2F3F2),
+          textStyle: const TextStyle(
             color: Colors.white,
           ),
-          padding: EdgeInsets.symmetric(vertical: 24, horizontal: 25),
+          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 25),
           minimumSize: const Size.fromHeight(50),
         ),
         child: Row(
@@ -47,13 +56,13 @@ class AccountScreenController with ChangeNotifier {
                 "assets/icons/account_icons/logout_icon.svg",
               ),
             ),
-            Text(
+            const Text(
               "Log Out",
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.primaryColor),
+                  color: AppColor.primaryColor),
             ),
           ],
         ),
@@ -67,14 +76,14 @@ class AccountScreenController with ChangeNotifier {
     return CircleAvatar(
       radius: 5.0,
       backgroundImage: AssetImage(imagePath),
-      backgroundColor: AppColors.primaryColor.withOpacity(0.7),
+      backgroundColor: AppColor.primaryColor.withOpacity(0.7),
     );
   }
 
   Widget getAccountItemWidget(AccountItem accountItem) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 15),
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      margin: const EdgeInsets.symmetric(vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Row(
         children: [
           SizedBox(
@@ -84,15 +93,15 @@ class AccountScreenController with ChangeNotifier {
               accountItem.iconPath,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Text(
             accountItem.label,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          Spacer(),
-          Icon(Icons.arrow_forward_ios)
+          const Spacer(),
+          const Icon(Icons.arrow_forward_ios)
         ],
       ),
     );

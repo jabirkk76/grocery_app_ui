@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/screens/explore_screen/widget/order_failed_dialog.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
 
-class CartController with ChangeNotifier {
-  Widget getDivider() {
-    return Divider(
+import '../screens/explore_screen/widget/order_failed_dialog.dart';
+
+ class CartController with ChangeNotifier{
+   Widget getDivider() {
+    return const Divider(
       thickness: 1,
       color: Color(0xFFE2E2E2),
     );
@@ -15,12 +16,12 @@ class CartController with ChangeNotifier {
       text: TextSpan(
           text: 'By placing an order you agree to our',
           style: TextStyle(
-            color: Color(0xFF7C7C7C),
+            color: const Color(0xFF7C7C7C),
             fontSize: 14,
             fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
             fontWeight: FontWeight.w600,
           ),
-          children: [
+          children: const [
             TextSpan(
               text: " Terms",
               style: TextStyle(
@@ -43,7 +44,7 @@ class CartController with ChangeNotifier {
   Widget checkoutRow(String label,
       {String? trailingText, Widget? trailingWidget}) {
     return Container(
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         vertical: 15,
       ),
       child: Row(
@@ -51,10 +52,10 @@ class CartController with ChangeNotifier {
           AppText(
             text: label,
             fontSize: 18,
-            color: Color(0xFF7C7C7C),
+            color: const Color(0xFF7C7C7C),
             fontWeight: FontWeight.w600,
           ),
-          Spacer(),
+          const Spacer(),
           trailingText == null
               ? (trailingWidget ?? Container())
               : AppText(
@@ -63,10 +64,10 @@ class CartController with ChangeNotifier {
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
                 ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
-          Icon(
+          const Icon(
             Icons.arrow_forward_ios,
             size: 20,
           ),
@@ -88,3 +89,5 @@ class CartController with ChangeNotifier {
     Navigator.pop(context);
   }
 }
+
+ 

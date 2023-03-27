@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 import '../styles/colors.dart';
@@ -34,7 +36,7 @@ class FilterController with ChangeNotifier {
   Widget getLabel(String text) {
     return Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
           color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
     );
   }
@@ -42,7 +44,7 @@ class FilterController with ChangeNotifier {
   Widget getLabel2(String text) {
     return Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
           color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
     );
   }
@@ -68,16 +70,14 @@ class _OptionItemState extends State<OptionItem> {
           checked = !checked;
         });
       },
-      child: Container(
-        child: Row(
-          children: [
-            getCheckBox(),
-            SizedBox(
-              width: 12,
-            ),
-            getTextWidget(),
-          ],
-        ),
+      child: Row(
+        children: [
+          getCheckBox(),
+          const SizedBox(
+            width: 12,
+          ),
+          getTextWidget(),
+        ],
       ),
     );
   }
@@ -86,7 +86,7 @@ class _OptionItemState extends State<OptionItem> {
     return Text(
       widget.text,
       style: TextStyle(
-        color: checked ? AppColors.primaryColor : Colors.black,
+        color: checked ? AppColor.primaryColor : Colors.black,
         fontSize: 16,
         fontWeight: FontWeight.w600,
       ),
@@ -95,16 +95,16 @@ class _OptionItemState extends State<OptionItem> {
 
   Widget getCheckBox() {
     return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(8)),
+      borderRadius: const BorderRadius.all(Radius.circular(8)),
       child: SizedBox(
         width: 25,
         height: 25,
         child: Container(
-          decoration: new BoxDecoration(
+          decoration: BoxDecoration(
               border: Border.all(
-                  width: checked ? 0 : 1.5, color: Color(0xffB1B1B1)),
-              borderRadius: new BorderRadius.circular(8),
-              color: checked ? AppColors.primaryColor : Colors.transparent),
+                  width: checked ? 0 : 1.5, color: const Color(0xffB1B1B1)),
+              borderRadius: BorderRadius.circular(8),
+              color: checked ? AppColor.primaryColor : Colors.transparent),
           child: Theme(
             data: ThemeData(
               unselectedWidgetColor: Colors.transparent,

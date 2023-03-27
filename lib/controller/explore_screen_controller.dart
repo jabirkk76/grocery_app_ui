@@ -1,28 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/models/category_model.dart';
-import 'package:grocery_app/screens/category_items_screen/category_items_screen.dart';
-
-import 'package:grocery_app/screens/items__screen/items_screen.dart';
-import 'package:grocery_app/widgets/category_item_card_widget.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:moonlight/helpers/app_localization.dart';
+import 'package:moonlight/models/category_model.dart';
+import 'package:moonlight/screens/category_items_screen/category_items_screen.dart';
+import 'package:moonlight/screens/items__screen/items_screen.dart';
+import 'package:moonlight/widgets/category_item_card_widget.dart';
 
 import '../widgets/search_bar_widget.dart';
 
 class ExploreScreenController with ChangeNotifier {
   List<Color> gridColors = [
-    Color(0xff53B175),
-    Color(0xffF8A44C),
-    Color(0xffF7A593),
-    Color(0xffD3B0E0),
-    Color(0xffFDE598),
-    Color(0xffB7DFF5),
-    Color(0xff836AF6),
-    Color(0xffD73B77),
+    const Color(0xff53B175),
+    const Color(0xffF8A44C),
+    const Color(0xffF7A593),
+    const Color(0xffD3B0E0),
+    const Color(0xffFDE598),
+    const Color(0xffB7DFF5),
+    const Color(0xff836AF6),
+    const Color(0xffD73B77),
   ];
+  List<CategoryItem> items(context) {
+    var categoryItemsDemo = [
+      CategoryItem(
+        name:
+            AppLocalization.of(context)!.translate("Fresh Fruits & Vegetables"),
+        imagePath: "assets/images/categories_images/fruit.png",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate("Cooking Oil"),
+        imagePath: "assets/images/categories_images/oil.png",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Meat & Fish'),
+        imagePath: "assets/images/categories_images/meat.png",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Bakery & Snacks'),
+        imagePath: "assets/images/categories_images/bakery.png",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Dairy & Eggs'),
+        imagePath: "assets/images/categories_images/dairy.png",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Beverages'),
+        imagePath: "assets/images/categories_images/beverages.png",
+      ),
+    ];
+    return categoryItemsDemo;
+  }
+
   Widget padded(Widget widget) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: widget,
     );
   }
@@ -35,26 +66,24 @@ class ExploreScreenController with ChangeNotifier {
     );
   }
 
-  Widget getHeader() {
+  Widget getHeader(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Center(
           child: AppText(
-            text: "Find Products",
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+            text: AppLocalization.of(context)!.translate('Find Products'),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         padded(
-          SearchBarWidget(),
+          const SearchBarWidget(),
         ),
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
       ],
@@ -63,12 +92,14 @@ class ExploreScreenController with ChangeNotifier {
 
   Widget getStaggeredGridView(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: 10,
       ),
       child: StaggeredGrid.count(
         crossAxisCount: 2,
-        children: categoryItemsDemo.asMap().entries.map<Widget>((e) {
+        mainAxisSpacing: 3.0,
+        crossAxisSpacing: 4.0,
+        children: items(context).asMap().entries.map<Widget>((e) {
           int index = e.key;
           CategoryItem categoryItem = e.value;
           return GestureDetector(
@@ -76,23 +107,21 @@ class ExploreScreenController with ChangeNotifier {
               onCategoryItemClicked(context, categoryItem);
             },
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: CategoryItemCardWidget(
                 item: categoryItem,
                 color: gridColors[index % gridColors.length],
               ),
             ),
           );
-        }).toList(),
-        mainAxisSpacing: 3.0,
-        crossAxisSpacing: 4.0, // add some space
+        }).toList(), // add some space
       ),
     );
   }
 
   void onCategoryItemClicked(BuildContext context, CategoryItem categoryItem) {
     Navigator.of(context).push(
-      new MaterialPageRoute(
+      MaterialPageRoute(
         builder: (BuildContext context) {
           return CategoryItemsScreen();
         },

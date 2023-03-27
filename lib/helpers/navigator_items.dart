@@ -6,5 +6,10 @@ class NavigatorItem {
   final int index;
   final Widget screen;
 
-  NavigatorItem(this.label, this.iconPath, this.index, this.screen);
+  NavigatorItem(
+    this.label,
+    this.iconPath,
+    this.index,
+    this.screen,
+  );
 }

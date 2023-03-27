@@ -1,15 +1,18 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_button.dart';
-import 'package:grocery_app/screens/order_accepted_screen/order_accepted_screen.dart';
+import 'package:moonlight/common_widgets/app_button.dart';
+import 'package:moonlight/screens/order_accepted_screen/order_accepted_screen.dart';
+
 
 class OrderFailedDialogue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-      insetPadding: EdgeInsets.symmetric(horizontal: 25),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 25),
       child: Container(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 25,
         ),
         height: 600.0,
@@ -18,11 +21,11 @@ class OrderFailedDialogue extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 20,
               ),
               child: Row(
-                children: [
+                children: const [
                   Icon(
                     Icons.close,
                     size: 30,
@@ -30,52 +33,52 @@ class OrderFailedDialogue extends StatelessWidget {
                 ],
               ),
             ),
-            Spacer(
+            const Spacer(
               flex: 10,
             ),
             Image.asset("assets/images/order_failed_image.png"),
-            Spacer(
+            const Spacer(
               flex: 5,
             ),
-            Text(
+            const Text(
               'Oops! Order Failed',
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
             ),
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
-            Text('Something went temply wrong',
+            const Text('Something went temply wrong',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: Color(0xff7C7C7C),
                 )),
-            Spacer(
+            const Spacer(
               flex: 8,
             ),
             AppButton(
               label: "Please Try Again",
               fontWeight: FontWeight.w600,
               onPressed: () {
-                Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (BuildContext context) {
                     return OrderAcceptedScreen();
                   },
                 ));
               },
             ),
-            Spacer(
+            const Spacer(
               flex: 4,
             ),
             InkWell(
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Text(
+                child: const Text(
                   'Back To Home',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 )),
-            Spacer(
+            const Spacer(
               flex: 4,
             ),
           ],

@@ -1,10 +1,13 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:grocery_app/controller/item_controller.dart';
-import 'package:grocery_app/models/grocery_model.dart';
+import 'package:moonlight/controller/item_controller.dart';
+import 'package:moonlight/widgets/grocery_item_card_widget.dart';
 
-import 'package:grocery_app/widgets/grocery_item_card_widget.dart';
 import 'package:provider/provider.dart';
+
+import '../../models/grocery_model.dart';
 
 class ItemsScreen extends StatelessWidget {
   @override
@@ -19,7 +22,7 @@ class ItemsScreen extends StatelessWidget {
               onPressed: () {
                 itemController.navigateToPreviousScreen(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back_ios_rounded,
                 color: Colors.black,
               )),
@@ -28,19 +31,21 @@ class ItemsScreen extends StatelessWidget {
               onPressed: () {
                 itemController.navigateToFilterScreen(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.sort,
                 color: Colors.black,
               ),
             )
           ],
-          title: Text(
+          title: const Text(
             'Beverages',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           )),
       body: SingleChildScrollView(
         child: StaggeredGrid.count(
           crossAxisCount: 2,
+          mainAxisSpacing: 3.0,
+          crossAxisSpacing: 0.0,
 
           children: beverages.asMap().entries.map<Widget>((e) {
             GroceryItemModel groceryItem = e.value;
@@ -49,15 +54,13 @@ class ItemsScreen extends StatelessWidget {
                 itemController.navigateToProductDetail(context, groceryItem);
               },
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: GroceryItemCardWidget(
                   item: groceryItem,
                 ),
               ),
             );
-          }).toList(),
-          mainAxisSpacing: 3.0,
-          crossAxisSpacing: 0.0, // add some space
+          }).toList(), // add some space
         ),
       ),
     );

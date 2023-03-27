@@ -1,6 +1,10 @@
+// ignore_for_file: file_names, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/styles/colors.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+
+import '../../../styles/colors.dart';
+
 
 class GroceryFeaturedItem {
   final String name;
@@ -16,7 +20,7 @@ var groceryFeaturedItems = [
 
 class GroceryFeaturedCard extends StatelessWidget {
   const GroceryFeaturedCard(this.groceryFeaturedItem,
-      {this.color = AppColors.primaryColor});
+      {this.color = AppColor.primaryColor});
 
   final GroceryFeaturedItem groceryFeaturedItem;
   final Color color;
@@ -26,7 +30,7 @@ class GroceryFeaturedCard extends StatelessWidget {
     return Container(
       width: 250,
       height: 105,
-      padding: EdgeInsets.symmetric(vertical: 16, horizontal: 17),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 17),
       decoration: BoxDecoration(
           color: color.withOpacity(0.25),
           borderRadius: BorderRadius.circular(18)),
@@ -35,7 +39,7 @@ class GroceryFeaturedCard extends StatelessWidget {
           Image(
             image: AssetImage(groceryFeaturedItem.imagePath),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
           AppText(

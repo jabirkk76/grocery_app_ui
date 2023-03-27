@@ -1,9 +1,11 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_button.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/controller/product_detail_controller.dart';
-import 'package:grocery_app/models/grocery_model.dart';
-import 'package:grocery_app/widgets/item_counter_widget.dart';
+import 'package:moonlight/common_widgets/app_button.dart';
+import 'package:moonlight/controller/product_detail_controller.dart';
+import 'package:moonlight/models/grocery_model.dart';
+import 'package:moonlight/widgets/item_counter_widget.dart';
+
 import 'package:provider/provider.dart';
 
 import 'widget/favourite_toggle_icon_widget.dart';
@@ -38,12 +40,12 @@ class ProductDetailsScreen extends StatelessWidget {
                         contentPadding: EdgeInsets.zero,
                         title: Text(
                           groceryItem.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text(
                           groceryItem.description,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                             color: Color(0xff7C7C7C),
@@ -51,7 +53,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         ),
                         trailing: FavoriteToggleIcon(),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Row(
                         children: [
                           ItemCounterWidget(
@@ -59,35 +61,35 @@ class ProductDetailsScreen extends StatelessWidget {
                               value.changeAmount(newAmount);
                             },
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Text(
                             "\$${getTotalPrice().toStringAsFixed(2)}",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
                       ),
-                      Spacer(),
-                      Divider(thickness: 1),
+                      const Spacer(),
+                      const Divider(thickness: 1),
                       productDetailController
                           .getProductDataRowWidget("Product Details"),
-                      Divider(thickness: 1),
+                      const Divider(thickness: 1),
                       productDetailController.getProductDataRowWidget(
                         "Nutritions",
                         customWidget: productDetailController.nutritionWidget(),
                       ),
-                      Divider(thickness: 1),
+                      const Divider(thickness: 1),
                       productDetailController.getProductDataRowWidget(
                         "Review",
                         customWidget: productDetailController.ratingWidget(),
                       ),
-                      Spacer(),
-                      AppButton(
+                      const Spacer(),
+                      const AppButton(
                         label: "Add To Basket",
                       ),
-                      Spacer(),
+                      const Spacer(),
                     ],
                   ),
                 ),

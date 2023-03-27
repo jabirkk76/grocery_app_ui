@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/screens/sign_in_screen/sign_in_screen.dart';
+import 'package:moonlight/screens/sign_in_screen/sign_in_screen.dart';
 
 class SignUpController extends ChangeNotifier {
   navigateToSignIn(BuildContext context) {

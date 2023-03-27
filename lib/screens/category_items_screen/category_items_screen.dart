@@ -1,10 +1,14 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/controller/category_items_controller.dart';
-import 'package:grocery_app/models/grocery_model.dart';
-import 'package:grocery_app/widgets/grocery_item_card_widget.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+
+import 'package:moonlight/controller/category_items_controller.dart';
+import 'package:moonlight/widgets/grocery_item_card_widget.dart';
 import 'package:provider/provider.dart';
+
+import '../../models/grocery_model.dart';
 
 class CategoryItemsScreen extends StatelessWidget {
   @override
@@ -22,8 +26,8 @@ class CategoryItemsScreen extends StatelessWidget {
             categoryItemController.navigateToPrevious(context);
           },
           child: Container(
-            padding: EdgeInsets.only(left: 25),
-            child: Icon(
+            padding: const EdgeInsets.only(left: 25),
+            child: const Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
             ),
@@ -35,8 +39,8 @@ class CategoryItemsScreen extends StatelessWidget {
               categoryItemController.navigateToFilter(context);
             },
             child: Container(
-              padding: EdgeInsets.only(right: 25),
-              child: Icon(
+              padding: const EdgeInsets.only(right: 25),
+              child: const Icon(
                 Icons.sort,
                 color: Colors.black,
               ),
@@ -44,10 +48,10 @@ class CategoryItemsScreen extends StatelessWidget {
           ),
         ],
         title: Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 25,
           ),
-          child: AppText(
+          child: const AppText(
             text: "Beverages",
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -57,6 +61,8 @@ class CategoryItemsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: StaggeredGrid.count(
           crossAxisCount: 2,
+          mainAxisSpacing: 3.0,
+          crossAxisSpacing: 0.0,
           children: beverages.asMap().entries.map<Widget>((e) {
             GroceryItemModel groceryItem = e.value;
             return GestureDetector(
@@ -64,15 +70,13 @@ class CategoryItemsScreen extends StatelessWidget {
                 categoryItemController.onItemClicked(context, groceryItem);
               },
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: GroceryItemCardWidget(
                   item: groceryItem,
                 ),
               ),
             );
           }).toList(),
-          mainAxisSpacing: 3.0,
-          crossAxisSpacing: 0.0,
         ),
       ),
     );

@@ -1,6 +1,11 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/styles/colors.dart';
+
+import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:moonlight/helpers/app_localization.dart';
+
+import '../../../styles/colors.dart';
 
 class HomeBannerWidget extends StatelessWidget {
   @override
@@ -10,37 +15,39 @@ class HomeBannerWidget extends StatelessWidget {
       height: 115,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          image: DecorationImage(
+          image: const DecorationImage(
               image: AssetImage(
                 "assets/images/banner_background.png",
               ),
               fit: BoxFit.cover)),
-      child: Row(
+      child: Stack(
         children: [
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          SizedBox(
             child: Image.asset(
               "assets/images/banner_image.png",
             ),
           ),
-          Spacer(),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AppText(
-                text: "Fresh Vegetables",
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-              AppText(
-                text: "Get Up To 40%  OFF",
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppColors.primaryColor,
-              ),
-            ],
+          Positioned(
+            right: 4,
+            bottom: 29,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppText(
+                  text: AppLocalization.of(context)!.translate('Banner'),
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+                const AppText(
+                  text: "Get Up To 40%  OFF",
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: AppColor.primaryColor,
+                ),
+              ],
+            ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           )
         ],

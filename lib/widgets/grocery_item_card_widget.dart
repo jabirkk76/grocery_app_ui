@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/models/grocery_model.dart';
+// ignore_for_file: prefer_interpolation_to_compose_strings
 
-import 'package:grocery_app/styles/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:moonlight/models/grocery_model.dart';
 
 class GroceryItemCardWidget extends StatelessWidget {
-  GroceryItemCardWidget({
+  const GroceryItemCardWidget({
     Key? key,
     required this.item,
   }) : super(key: key);
@@ -18,7 +18,7 @@ class GroceryItemCardWidget extends StatelessWidget {
       height: 250,
       decoration: BoxDecoration(
         border: Border.all(
-          color: Color(0xffE2E2E2),
+          color: const Color(0xffE2E2E2),
         ),
         borderRadius: BorderRadius.circular(
           18,
@@ -40,7 +40,7 @@ class GroceryItemCardWidget extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             AppText(
@@ -52,9 +52,9 @@ class GroceryItemCardWidget extends StatelessWidget {
               text: item.description,
               fontSize: 14,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF7C7C7C),
+              color: const Color(0xFF7C7C7C),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -64,7 +64,7 @@ class GroceryItemCardWidget extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
-                Spacer(),
+                const Spacer(),
                 addWidget()
               ],
             )
@@ -75,9 +75,7 @@ class GroceryItemCardWidget extends StatelessWidget {
   }
 
   Widget imageWidget() {
-    return Container(
-      child: Image.asset(item.imagePath),
-    );
+    return Image.asset(item.imagePath);
   }
 
   Widget addWidget() {
@@ -85,9 +83,8 @@ class GroceryItemCardWidget extends StatelessWidget {
       height: 45,
       width: 45,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(17),
-          color: AppColors.primaryColor),
-      child: Center(
+          borderRadius: BorderRadius.circular(17), color: Colors.green),
+      child: const Center(
         child: Icon(
           Icons.add,
           color: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/controller/splash_controller.dart';
-import 'package:grocery_app/helpers/app_colors.dart';
+import 'package:moonlight/controller/splash_controller.dart';
+import 'package:moonlight/helpers/app_colors.dart';
+
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {

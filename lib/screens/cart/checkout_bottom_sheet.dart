@@ -1,9 +1,14 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_button.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/controller/cart_controller.dart';
+import 'package:moonlight/common_widgets/app_button.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+
 import 'package:provider/provider.dart';
 
+import '../../controller/cart_controller.dart';
+
+// ignore: use_key_in_widget_constructors
 class CheckoutBottomSheet extends StatefulWidget {
   @override
   _CheckoutBottomSheetState createState() => _CheckoutBottomSheetState();
@@ -14,11 +19,11 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
   Widget build(BuildContext context) {
     final cartController = Provider.of<CartController>(context, listen: false);
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 25,
         vertical: 30,
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(20),
@@ -28,24 +33,24 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
         children: <Widget>[
           Row(
             children: [
-              AppText(
+              const AppText(
                 text: "Checkout",
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
               ),
-              Spacer(),
+              const Spacer(),
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.close,
                   size: 25,
                 ),
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 45,
           ),
           cartController.getDivider(),
@@ -53,7 +58,7 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
           cartController.getDivider(),
           cartController.checkoutRow(
             "Payment",
-            trailingWidget: Icon(
+            trailingWidget: const Icon(
               Icons.payment,
             ),
           ),
@@ -63,18 +68,18 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
           cartController.getDivider(),
           cartController.checkoutRow("Total Cost", trailingText: "\$13.97"),
           cartController.getDivider(),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           cartController.termsAndConditionsAgreement(context),
           Container(
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               top: 25,
             ),
             child: AppButton(
               label: "Place Order",
               // fontWeight: FontWeight.w600,
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 25,
               ),
               onPressed: () {

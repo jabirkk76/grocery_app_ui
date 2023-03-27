@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/models/category_model.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:moonlight/models/category_model.dart';
+
 
 class CategoryItemCardWidget extends StatelessWidget {
-  CategoryItemCardWidget(
+  const CategoryItemCardWidget(
       {Key? key, required this.item, this.color = Colors.blue})
       : super(key: key);
   final CategoryItem item;
@@ -24,7 +25,7 @@ class CategoryItemCardWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             height: 120,
             width: 120,
             child: imageWidget(),
@@ -46,11 +47,9 @@ class CategoryItemCardWidget extends StatelessWidget {
   }
 
   Widget imageWidget() {
-    return Container(
-      child: Image.asset(
-        item.imagePath,
-        fit: BoxFit.contain,
-      ),
+    return Image.asset(
+      item.imagePath,
+      fit: BoxFit.contain,
     );
   }
 }

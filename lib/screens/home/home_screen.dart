@@ -1,9 +1,13 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/controller/home_controller.dart';
-import 'package:grocery_app/models/grocery_model.dart';
-import 'package:grocery_app/widgets/search_bar_widget.dart';
-import 'package:grocery_app/styles/colors.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:moonlight/controller/home_controller.dart';
+import 'package:moonlight/helpers/app_localization.dart';
+import 'package:moonlight/models/grocery_model.dart';
+import 'package:moonlight/styles/colors.dart';
+import 'package:moonlight/widgets/search_bar_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'widget/grocery_featured_Item_widget.dart';
@@ -21,13 +25,13 @@ class HomeScreen extends StatelessWidget {
         title: Column(
           children: [
             SvgPicture.asset("assets/icons/app_icon_color.svg"),
-            Text(
+            const Text(
               "Khartoum,Sudan",
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.black),
-            )
+            ),
           ],
         ),
       ),
@@ -35,72 +39,75 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               homeController.padded(
-                SearchBarWidget(),
+                const SearchBarWidget(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               homeController.padded(
                 HomeBannerWidget(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               homeController.padded(
-                homeController.subTitle("Exclusive Order"),
+                homeController.subTitle(
+                    AppLocalization.of(context)!.translate('Exclusive Order')),
               ),
               homeController.getHorizontalItemSlider(exclusiveOffers),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               homeController.padded(
-                homeController.subTitle("Best Selling"),
+                homeController.subTitle(
+                    AppLocalization.of(context)!.translate('Best Sell')),
               ),
               homeController.getHorizontalItemSlider(bestSelling),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               homeController.padded(
-                homeController.subTitle("Groceries"),
+                homeController.subTitle(
+                    AppLocalization.of(context)!.translate("Groceries")),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Container(
+              SizedBox(
                 height: 105,
                 child: ListView(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.horizontal,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     GroceryFeaturedCard(
                       groceryFeaturedItems[0],
-                      color: Color(0xffF8A44C),
+                      color: const Color(0xffF8A44C),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     GroceryFeaturedCard(
                       groceryFeaturedItems[1],
-                      color: AppColors.primaryColor,
+                      color: AppColor.primaryColor,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               homeController.getHorizontalItemSlider(groceries),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
             ],

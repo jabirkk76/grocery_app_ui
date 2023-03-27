@@ -1,7 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:grocery_app/styles/colors.dart';
+
+
+import '../styles/colors.dart';
 
 class AppButton extends StatelessWidget {
   final String label;
@@ -23,7 +25,7 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.maxFinite,
       child: ElevatedButton(
         onPressed: () {
@@ -35,7 +37,7 @@ class AppButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(roundness),
           ),
           elevation: 0,
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor: AppColor.primaryColor,
           textStyle: TextStyle(
             color: Colors.white,
             fontFamily: Theme.of(context).textTheme.bodyText1?.fontFamily,

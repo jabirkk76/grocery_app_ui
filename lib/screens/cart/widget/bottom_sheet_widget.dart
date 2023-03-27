@@ -1,7 +1,10 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/common_widgets/custom_button_widget.dart';
-import 'package:grocery_app/controller/cart_controller.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:moonlight/common_widgets/custom_button_widget.dart';
+import 'package:moonlight/controller/cart_controller.dart';
+
 import 'package:provider/provider.dart';
 
 import '../../explore_screen/widget/order_failed_dialog.dart';
@@ -16,8 +19,8 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   Widget build(BuildContext context) {
     final cartController = Provider.of<CartController>(context, listen: false);
     return Container(
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(12),
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       child: Wrap(
@@ -25,7 +28,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppText(
+              const AppText(
                 text: "Checkout",
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
@@ -34,20 +37,20 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.close,
                     size: 25,
                   ))
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 45,
           ),
           SizedBox(
             height: 60,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text(
                   'Delivery',
                   style: TextStyle(
@@ -71,14 +74,14 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             color: Color(0xFFE2E2E2),
           ),
           SizedBox(
             height: 60,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text(
                   'Payment',
                   style: TextStyle(
@@ -95,14 +98,14 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             color: Color(0xFFE2E2E2),
           ),
           SizedBox(
             height: 60,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text(
                   'Promo Code',
                   style: TextStyle(
@@ -126,14 +129,14 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             color: Color(0xFFE2E2E2),
           ),
           SizedBox(
             height: 60,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text(
                   'Total Cost',
                   style: TextStyle(
@@ -157,15 +160,15 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             color: Color(0xFFE2E2E2),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+            children: const [
               Text('By placing an order you agree to our'),
               Text(
                 'Terms',
@@ -178,7 +181,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 45,
           ),
           Center(

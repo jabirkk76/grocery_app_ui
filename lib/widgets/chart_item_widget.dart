@@ -1,12 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/models/grocery_model.dart';
-import 'package:grocery_app/styles/colors.dart';
+// ignore_for_file: library_private_types_in_public_api
 
+import 'package:flutter/material.dart';
+import 'package:moonlight/common_widgets/app_text.dart';
+
+import 'package:moonlight/models/grocery_model.dart';
+
+import '../styles/colors.dart';
 import 'item_counter_widget.dart';
 
 class ChartItemWidget extends StatefulWidget {
-  ChartItemWidget({Key? key, required this.item}) : super(key: key);
+  const ChartItemWidget({Key? key, required this.item}) : super(key: key);
   final GroceryItemModel item;
 
   @override
@@ -16,7 +19,7 @@ class ChartItemWidget extends StatefulWidget {
 class _ChartItemWidgetState extends State<ChartItemWidget> {
   final double height = 110;
 
-  final Color borderColor = Color(0xffE2E2E2);
+  final Color borderColor = const Color(0xffE2E2E2);
 
   final double borderRadius = 18;
 
@@ -26,7 +29,7 @@ class _ChartItemWidgetState extends State<ChartItemWidget> {
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         vertical: 30,
       ),
       child: IntrinsicHeight(
@@ -43,18 +46,18 @@ class _ChartItemWidgetState extends State<ChartItemWidget> {
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 AppText(
                     text: widget.item.description,
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.darkGrey),
-                SizedBox(
+                    color: AppColor.darkGrey),
+                const SizedBox(
                   height: 12,
                 ),
-                Spacer(),
+                const Spacer(),
                 ItemCounterWidget(
                   onAmountChanged: (newAmount) {
                     setState(() {
@@ -66,15 +69,15 @@ class _ChartItemWidgetState extends State<ChartItemWidget> {
             ),
             Column(
               children: [
-                Icon(
+                const Icon(
                   Icons.close,
-                  color: AppColors.darkGrey,
+                  color: AppColor.darkGrey,
                   size: 25,
                 ),
-                Spacer(
+                const Spacer(
                   flex: 5,
                 ),
-                Container(
+                SizedBox(
                   width: 70,
                   child: AppText(
                     text: "\$${getPrice().toStringAsFixed(2)}",
@@ -83,7 +86,7 @@ class _ChartItemWidgetState extends State<ChartItemWidget> {
                     textAlign: TextAlign.right,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             )
           ],
@@ -93,7 +96,7 @@ class _ChartItemWidgetState extends State<ChartItemWidget> {
   }
 
   Widget imageWidget() {
-    return Container(
+    return SizedBox(
       width: 100,
       child: Image.asset(widget.item.imagePath),
     );

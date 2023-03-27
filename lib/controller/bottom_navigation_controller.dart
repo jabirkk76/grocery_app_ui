@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/helpers/navigator_items.dart';
-import 'package:grocery_app/screens/account/account_screen.dart';
-import 'package:grocery_app/screens/explore_screen/explore_screen.dart';
-import 'package:grocery_app/screens/favorites_screen/favourite_screen.dart';
+import 'package:moonlight/screens/account/account_screen.dart';
+import 'package:moonlight/screens/favorites_screen/favourite_screen.dart';
+import 'package:moonlight/screens/home/home_screen.dart';
 
-import 'package:grocery_app/screens/home/home_screen.dart';
-
+import '../helpers/navigator_items.dart';
 import '../screens/cart/cart_screen.dart';
+import '../screens/explore_screen/explore_screen.dart';
 
 class BottomNavigationController with ChangeNotifier {
   List<NavigatorItem> navigatorItems = [
