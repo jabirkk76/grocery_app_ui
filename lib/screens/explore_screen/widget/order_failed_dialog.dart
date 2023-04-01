@@ -1,9 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_button.dart';
-import 'package:moonlight/screens/order_accepted_screen/order_accepted_screen.dart';
-
+import 'package:grocery_app/common_widgets/app_button.dart';
+import 'package:grocery_app/screens/order_accepted_screen/order_accepted_screen.dart';
 
 class OrderFailedDialogue extends StatelessWidget {
   @override

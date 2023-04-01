@@ -4,6 +4,9 @@ class AppSizes {
   static const szdh90 = SizedBox(
     height: 90.84,
   );
+  static const szdh10 = SizedBox(
+    height: 10,
+  );
   static const szdh74 = SizedBox(
     height: 74,
   );

@@ -1,11 +1,11 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/custom_button_widget.dart';
-import 'package:moonlight/helpers/app_localization.dart';
-import 'package:moonlight/helpers/column_with_seprator.dart';
-import 'package:moonlight/models/grocery_model.dart';
-import 'package:moonlight/widgets/chart_item_widget.dart';
+import 'package:grocery_app/common_widgets/custom_button_widget.dart';
+import 'package:grocery_app/helpers/app_localization.dart';
+import 'package:grocery_app/helpers/column_with_seprator.dart';
+import 'package:grocery_app/models/grocery_model.dart';
+import 'package:grocery_app/widgets/chart_item_widget.dart';
 
 import 'widget/bottom_sheet_widget.dart';
 
@@ -20,7 +20,7 @@ class CartScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: Text(
           AppLocalization.of(context)!.translate('My Cart'),
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),

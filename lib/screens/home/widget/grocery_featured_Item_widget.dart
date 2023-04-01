@@ -1,10 +1,9 @@
 // ignore_for_file: file_names, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
 
 import '../../../styles/colors.dart';
-
 
 class GroceryFeaturedItem {
   final String name;

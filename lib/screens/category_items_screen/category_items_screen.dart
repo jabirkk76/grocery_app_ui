@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:grocery_app/controller/category_items_controller.dart';
+import 'package:grocery_app/widgets/grocery_item_card_widget.dart';
 
-import 'package:moonlight/controller/category_items_controller.dart';
-import 'package:moonlight/widgets/grocery_item_card_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/grocery_model.dart';
@@ -71,8 +71,12 @@ class CategoryItemsScreen extends StatelessWidget {
               },
               child: Container(
                 padding: const EdgeInsets.all(10),
-                child: GroceryItemCardWidget(
-                  item: groceryItem,
+                child: Column(
+                  children: [
+                    GroceryItemCardWidget(
+                      item: groceryItem,
+                    ),
+                  ],
                 ),
               ),
             );

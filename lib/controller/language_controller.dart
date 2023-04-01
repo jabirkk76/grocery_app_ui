@@ -1,5 +1,7 @@
+// ignore_for_file: non_constant_identifier_names, avoid_print, unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
-import 'package:moonlight/helpers/language_helper.dart';
+import 'package:grocery_app/helpers/language_helper.dart';
 
 class LanguageController with ChangeNotifier {
   String InitialLanguage = 'English';
@@ -8,6 +10,7 @@ class LanguageController with ChangeNotifier {
     'Malayalam',
     'Hindi',
     'Tamil',
+    'Gujarathi'
   ];
 
   Locale initialLanguageCode = const Locale('en');
@@ -30,9 +33,9 @@ class LanguageController with ChangeNotifier {
   defineCurrentLanguage(context) {
     String definedCurrentLanguage;
 
-    if (InitialLanguage != null)
+    if (InitialLanguage != null) {
       definedCurrentLanguage = InitialLanguage;
-    else {
+    } else {
       print(
           "locale from currentData: ${Localizations.localeOf(context).toString()}");
       definedCurrentLanguage = languageHelper

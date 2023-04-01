@@ -1,5 +1,3 @@
-import 'package:moonlight/helpers/app_localization.dart';
-
 class CategoryItem {
   final int? id;
   final String name;

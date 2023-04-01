@@ -1,9 +1,8 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, unnecessary_string_escapes
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
-
-import 'package:moonlight/models/grocery_model.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:grocery_app/models/grocery_model.dart';
 
 import '../styles/colors.dart';
 import 'item_counter_widget.dart';
@@ -80,7 +79,7 @@ class _ChartItemWidgetState extends State<ChartItemWidget> {
                 SizedBox(
                   width: 70,
                   child: AppText(
-                    text: "\$${getPrice().toStringAsFixed(2)}",
+                    text: "\₹${getPrice().toStringAsFixed(2)}",
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     textAlign: TextAlign.right,

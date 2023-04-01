@@ -1,28 +1,57 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:moonlight/helpers/app_localization.dart';
+import 'package:grocery_app/helpers/app_localization.dart';
+import 'package:grocery_app/screens/orders_screen/orders_screen.dart';
+import 'package:grocery_app/utils/app_utils.dart';
+import 'package:image_picker/image_picker.dart';
 
-import '../helpers/account_item.dart';
+import '../models/account_item.dart';
 import '../styles/colors.dart';
 
 class AccountScreenController with ChangeNotifier {
+  File? image;
+  Future<File?> pickImage(ImageSource source) async {
+    image = await AppUtils().imagePick(source);
+    notifyListeners();
+  }
+
   List<AccountItem> account(BuildContext context) {
     List<AccountItem> accountItems = [
-      AccountItem(AppLocalization.of(context)!.translate("orders"),
+      AccountItem(
+          page: const OrdersScreen(),
+          AppLocalization.of(context)!.translate("orders"),
           "assets/icons/account_icons/orders_icon.svg"),
-      AccountItem(AppLocalization.of(context)!.translate('my details'),
+      AccountItem(
+          page: const OrdersScreen(),
+          AppLocalization.of(context)!.translate('my details'),
           "assets/icons/account_icons/details_icon.svg"),
-      AccountItem(AppLocalization.of(context)!.translate("Delivery Access"),
+      AccountItem(
+          page: const OrdersScreen(),
+          AppLocalization.of(context)!.translate("Delivery Access"),
           "assets/icons/account_icons/delivery_icon.svg"),
-      AccountItem(AppLocalization.of(context)!.translate("Payment Methods"),
+      AccountItem(
+          page: const OrdersScreen(),
+          AppLocalization.of(context)!.translate("Payment Methods"),
           "assets/icons/account_icons/payment_icon.svg"),
-      AccountItem(AppLocalization.of(context)!.translate("Promo Card"),
+      AccountItem(
+          page: const OrdersScreen(),
+          AppLocalization.of(context)!.translate("Promo Card"),
           "assets/icons/account_icons/promo_icon.svg"),
-      AccountItem(AppLocalization.of(context)!.translate("Notifications"),
+      AccountItem(
+          page: const OrdersScreen(),
+          AppLocalization.of(context)!.translate("Notifications"),
           "assets/icons/account_icons/notification_icon.svg"),
-      AccountItem(AppLocalization.of(context)!.translate("Help"),
+      AccountItem(
+          page: const OrdersScreen(),
+          AppLocalization.of(context)!.translate("Help"),
           "assets/icons/account_icons/help_icon.svg"),
-      AccountItem(AppLocalization.of(context)!.translate("About"),
+      AccountItem(
+          page: const OrdersScreen(),
+          AppLocalization.of(context)!.translate("About"),
           "assets/icons/account_icons/about_icon.svg"),
     ];
     return accountItems;
@@ -67,42 +96,6 @@ class AccountScreenController with ChangeNotifier {
           ],
         ),
         onPressed: () {},
-      ),
-    );
-  }
-
-  Widget getImageHeader() {
-    String imagePath = "assets/images/IMG_20230227_101534.jpg";
-    return CircleAvatar(
-      radius: 5.0,
-      backgroundImage: AssetImage(imagePath),
-      backgroundColor: AppColor.primaryColor.withOpacity(0.7),
-    );
-  }
-
-  Widget getAccountItemWidget(AccountItem accountItem) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 15),
-      padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: Row(
-        children: [
-          SizedBox(
-            width: 20,
-            height: 20,
-            child: SvgPicture.asset(
-              accountItem.iconPath,
-            ),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          Text(
-            accountItem.label,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const Spacer(),
-          const Icon(Icons.arrow_forward_ios)
-        ],
       ),
     );
   }

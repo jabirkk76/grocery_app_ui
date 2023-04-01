@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moonlight/screens/filter_screen/filter_screen.dart';
-import 'package:moonlight/screens/product_details_screen/product_details_screen.dart';
+import 'package:grocery_app/screens/filter_screen/filter_screen.dart';
+import 'package:grocery_app/screens/product_details_screen/product_details_screen.dart';
 
 class ItemController with ChangeNotifier {
   navigateToFilterScreen(BuildContext context) {

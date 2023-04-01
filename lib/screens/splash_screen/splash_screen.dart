@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moonlight/controller/splash_controller.dart';
-import 'package:moonlight/helpers/app_colors.dart';
+import 'package:grocery_app/controller/splash_controller.dart';
+import 'package:grocery_app/styles/colors.dart';
 
 import 'package:provider/provider.dart';
 
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.splashColor,
+      backgroundColor: AppColor.primaryColor,
       body: SafeArea(
         child: Center(
           child: Column(

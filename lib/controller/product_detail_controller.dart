@@ -1,13 +1,19 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
-
+import 'package:grocery_app/common_widgets/app_text.dart';
 
 class ProductDetailController with ChangeNotifier {
   int amount = 1;
-  changeAmount(newAmount) {
-    amount = newAmount;
+  incrementAmount() {
+    if (amount < 10) {
+      amount = amount + 1;
+      notifyListeners();
+    }
+  }
+
+  decrementAmount() {
+    amount = amount - 1;
     notifyListeners();
   }
 

@@ -1,9 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
-import 'package:moonlight/common_widgets/custom_button_widget.dart';
-import 'package:moonlight/controller/cart_controller.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:grocery_app/common_widgets/custom_button_widget.dart';
+import 'package:grocery_app/controller/cart_controller.dart';
 
 import 'package:provider/provider.dart';
 

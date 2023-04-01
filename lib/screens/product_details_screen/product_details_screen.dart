@@ -1,10 +1,10 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_button.dart';
-import 'package:moonlight/controller/product_detail_controller.dart';
-import 'package:moonlight/models/grocery_model.dart';
-import 'package:moonlight/widgets/item_counter_widget.dart';
+import 'package:grocery_app/common_widgets/app_button.dart';
+import 'package:grocery_app/controller/product_detail_controller.dart';
+import 'package:grocery_app/models/grocery_model.dart';
+import 'package:grocery_app/widgets/item_counter_widget.dart';
 
 import 'package:provider/provider.dart';
 
@@ -56,11 +56,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       const Spacer(),
                       Row(
                         children: [
-                          ItemCounterWidget(
-                            onAmountChanged: (newAmount) {
-                              value.changeAmount(newAmount);
-                            },
-                          ),
+                          const ItemCounterWidget(),
                           const Spacer(),
                           Text(
                             "\$${getTotalPrice().toStringAsFixed(2)}",

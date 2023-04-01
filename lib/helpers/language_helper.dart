@@ -6,19 +6,22 @@ class LanguageHelper {
 
     switch (langNameToConvert) {
       case 'English':
-        convertedLocale = Locale('en', 'EN');
+        convertedLocale = const Locale('en', 'EN');
         break;
       case 'Malayalam':
-        convertedLocale = Locale('ml', 'ML');
+        convertedLocale = const Locale('ml', 'ML');
         break;
       case 'Hindi':
-        convertedLocale = Locale('hi', 'HI');
+        convertedLocale = const Locale('hi', 'HI');
         break;
       case 'Tamil':
-        convertedLocale = Locale('ta', 'TA');
+        convertedLocale = const Locale('ta', 'TA');
+        break;
+      case 'Gujarathi':
+        convertedLocale = const Locale('gu', 'GU');
         break;
       default:
-        convertedLocale = Locale('en', 'EN');
+        convertedLocale = const Locale('en', 'EN');
     }
 
     return convertedLocale;
@@ -39,6 +42,9 @@ class LanguageHelper {
         break;
       case 'ta':
         langName = "Tamil";
+        break;
+      case 'gu':
+        langName = "Gujarathi";
         break;
       default:
         langName = "Malayalam";

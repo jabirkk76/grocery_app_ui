@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
-import 'package:moonlight/models/category_model.dart';
-
+import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:grocery_app/models/category_model.dart';
 
 class CategoryItemCardWidget extends StatelessWidget {
   const CategoryItemCardWidget(

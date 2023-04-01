@@ -1,8 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
-import 'package:moonlight/helpers/app_localization.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:grocery_app/helpers/app_localization.dart';
 
 class FavouriteScreen extends StatelessWidget {
   @override
@@ -15,7 +15,7 @@ class FavouriteScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: Text(
           AppLocalization.of(context)!.translate('My Favourites'),
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
@@ -23,7 +23,7 @@ class FavouriteScreen extends StatelessWidget {
         child: AppText(
           text: AppLocalization.of(context)!.translate('No Favorite Items'),
           fontWeight: FontWeight.w600,
-          color: Color(0xFF7C7C7C),
+          color: const Color(0xFF7C7C7C),
         ),
       ),
     );

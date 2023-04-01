@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../helpers/app_colors.dart';
-
+import 'package:grocery_app/styles/colors.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   const CustomButtonWidget({
@@ -21,7 +19,7 @@ class CustomButtonWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(19),
           ),
-          backgroundColor: AppColors.splashColor,
+          backgroundColor: AppColor.primaryColor,
         ),
         onPressed: onTap,
         child: Text(

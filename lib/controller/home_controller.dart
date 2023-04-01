@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-
-import 'package:moonlight/models/grocery_model.dart';
-import 'package:moonlight/screens/product_details_screen/product_details_screen.dart';
-import 'package:moonlight/widgets/grocery_item_card_widget.dart';
+import 'package:grocery_app/models/grocery_model.dart';
+import 'package:grocery_app/screens/home/widget/home_banner_widget.dart';
+import 'package:grocery_app/screens/product_details_screen/product_details_screen.dart';
+import 'package:grocery_app/widgets/grocery_item_card_widget.dart';
 
 import '../styles/colors.dart';
 
 class HomeController with ChangeNotifier {
+  List<HomeBannerWidget> sliderImage = [
+    HomeBannerWidget(),
+    HomeBannerWidget(),
+    HomeBannerWidget()
+  ];
   Widget padded(Widget widget) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),

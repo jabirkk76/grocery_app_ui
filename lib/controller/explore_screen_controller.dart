@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
-import 'package:moonlight/helpers/app_localization.dart';
-import 'package:moonlight/models/category_model.dart';
-import 'package:moonlight/screens/category_items_screen/category_items_screen.dart';
-import 'package:moonlight/screens/items__screen/items_screen.dart';
-import 'package:moonlight/widgets/category_item_card_widget.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:grocery_app/helpers/app_localization.dart';
+import 'package:grocery_app/models/category_model.dart';
+import 'package:grocery_app/screens/category_items_screen/category_items_screen.dart';
+import 'package:grocery_app/screens/items__screen/items_screen.dart';
+import 'package:grocery_app/widgets/category_item_card_widget.dart';
 
 import '../widgets/search_bar_widget.dart';
 
@@ -23,29 +23,52 @@ class ExploreScreenController with ChangeNotifier {
   List<CategoryItem> items(context) {
     var categoryItemsDemo = [
       CategoryItem(
-        name:
-            AppLocalization.of(context)!.translate("Fresh Fruits & Vegetables"),
-        imagePath: "assets/images/categories_images/fruit.png",
+        name: AppLocalization.of(context)!.translate("Masala & Premix"),
+        imagePath: "assets/images/images.jpg",
       ),
       CategoryItem(
-        name: AppLocalization.of(context)!.translate("Cooking Oil"),
-        imagePath: "assets/images/categories_images/oil.png",
+        name: AppLocalization.of(context)!.translate('Oil & Rice'),
+        imagePath: "assets/images/images (1).jpg",
       ),
       CategoryItem(
-        name: AppLocalization.of(context)!.translate('Meat & Fish'),
-        imagePath: "assets/images/categories_images/meat.png",
+        name: AppLocalization.of(context)!.translate('Drinks'),
+        imagePath: "assets/images/download (1).jpg",
       ),
       CategoryItem(
-        name: AppLocalization.of(context)!.translate('Bakery & Snacks'),
-        imagePath: "assets/images/categories_images/bakery.png",
+        name: AppLocalization.of(context)!.translate('Biscuits & Toasts'),
+        imagePath: "assets/images/images (2).jpg",
       ),
       CategoryItem(
-        name: AppLocalization.of(context)!.translate('Dairy & Eggs'),
-        imagePath: "assets/images/categories_images/dairy.png",
+        name: AppLocalization.of(context)!.translate('Snacks'),
+        imagePath: "assets/images/download (2).jpg",
       ),
       CategoryItem(
-        name: AppLocalization.of(context)!.translate('Beverages'),
-        imagePath: "assets/images/categories_images/beverages.png",
+        name: AppLocalization.of(context)!.translate('cleaning'),
+        imagePath: "assets/images/download (3).jpg",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Personal Care'),
+        imagePath: "assets/images/download (4).jpg",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate("Home Appliances"),
+        imagePath: "assets/images/download (8).jpg",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Grooming'),
+        imagePath: "assets/images/download (5).jpg",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Health'),
+        imagePath: "assets/images/images (3).jpg",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Baby Care'),
+        imagePath: "assets/images/download (6).jpg",
+      ),
+      CategoryItem(
+        name: AppLocalization.of(context)!.translate('Home needs'),
+        imagePath: "assets/images/download (7).jpg",
       ),
     ];
     return categoryItemsDemo;

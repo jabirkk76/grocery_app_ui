@@ -1,5 +1,10 @@
+// ignore_for_file: use_key_in_widget_constructors, depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
+
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:grocery_app/controller/account_screen_controller.dart';
+import 'package:grocery_app/controller/auth_controller.dart';
 import 'package:grocery_app/controller/bottom_navigation_controller.dart';
 import 'package:grocery_app/controller/cart_controller.dart';
 import 'package:grocery_app/controller/category_items_controller.dart';
@@ -10,16 +15,12 @@ import 'package:grocery_app/controller/item_controller.dart';
 import 'package:grocery_app/controller/language_controller.dart';
 import 'package:grocery_app/controller/on_board_controller.dart';
 import 'package:grocery_app/controller/product_detail_controller.dart';
-import 'package:grocery_app/controller/sign_in_controller.dart';
-import 'package:grocery_app/controller/sign_up_controller.dart';
 import 'package:grocery_app/controller/splash_controller.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
-
-import 'package:flutter_localizations/flutter_localizations.dart';
-
+import 'package:grocery_app/screens/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'screens/sign_in_screen/sign_in_screen.dart';
+import 'screens/bottom_navigation_bar/bottom_navigation_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
   final LanguageController currentData = LanguageController();
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle( systemNavigationBarColor: AppColor.primaryColor, // navigation bar color statusBarColor: Colors.pink, // status bar color ));
     return ChangeNotifierProvider(
       create: (context) => currentData,
       child: Consumer<LanguageController>(
@@ -40,12 +42,6 @@ class MyApp extends StatelessWidget {
             ),
             ChangeNotifierProvider(
               create: (context) => OnBoardController(),
-            ),
-            ChangeNotifierProvider(
-              create: (context) => SignInController(),
-            ),
-            ChangeNotifierProvider(
-              create: (context) => SignUpController(),
             ),
             ChangeNotifierProvider(
               create: (context) => BottomNavigationController(),
@@ -74,9 +70,13 @@ class MyApp extends StatelessWidget {
             ChangeNotifierProvider(
               create: (context) => ProductDetailController(),
             ),
+            ChangeNotifierProvider(
+              create: (context) => AuthController(),
+            ),
           ],
           child: MaterialApp(
-            home: SignInScreen(),
+            debugShowCheckedModeBanner: false,
+            home: SplashScreen(),
             locale:
                 Provider.of<LanguageController>(context).initialLanguageCode,
             localizationsDelegates: const [
@@ -90,6 +90,7 @@ class MyApp extends StatelessWidget {
               Locale('ml'),
               Locale('hi'),
               Locale('ta'),
+              Locale('gu')
             ],
           ),
         ),

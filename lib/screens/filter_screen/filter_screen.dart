@@ -1,7 +1,7 @@
 // ignore_for_file: unused_local_variable, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/controller/filter_controller.dart';
+import 'package:grocery_app/controller/filter_controller.dart';
 
 import 'package:provider/provider.dart';
 

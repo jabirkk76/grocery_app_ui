@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/controller/explore_screen_controller.dart';
+import 'package:grocery_app/controller/explore_screen_controller.dart';
 
 import 'package:provider/provider.dart';
 

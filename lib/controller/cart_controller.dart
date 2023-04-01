@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
 
 import '../screens/explore_screen/widget/order_failed_dialog.dart';
 
- class CartController with ChangeNotifier{
-   Widget getDivider() {
+class CartController with ChangeNotifier {
+  Widget getDivider() {
     return const Divider(
       thickness: 1,
       color: Color(0xFFE2E2E2),
@@ -89,5 +89,3 @@ import '../screens/explore_screen/widget/order_failed_dialog.dart';
     Navigator.pop(context);
   }
 }
-
- 

@@ -1,8 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:moonlight/common_widgets/app_button.dart';
-import 'package:moonlight/common_widgets/app_text.dart';
+import 'package:grocery_app/common_widgets/app_button.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
 
 import 'package:provider/provider.dart';
 
