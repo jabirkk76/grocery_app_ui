@@ -1,7 +1,9 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, empty_statements
 
 import 'package:flutter/material.dart';
+import 'package:grocery_app/controller/product_detail_controller.dart';
 
+import 'package:provider/provider.dart';
 
 import '../styles/colors.dart';
 
@@ -27,47 +29,59 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
-      child: ElevatedButton(
-        onPressed: () {
-          onPressed?.call();
-        },
-        style: ElevatedButton.styleFrom(
-          visualDensity: VisualDensity.compact,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(roundness),
+      child:
+          Consumer<ProductDetailController>(builder: (context, value, child) {
+        return ElevatedButton(
+          onPressed: () {
+            if (value.isNear == false) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  backgroundColor: Colors.red,
+                  content: Text(
+                      'Sorry.This service is unavailable for your location.')));
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  backgroundColor: Colors.green,
+                  content: Text('Item is added to your cart.')));
+            }
+          },
+          style: ElevatedButton.styleFrom(
+            visualDensity: VisualDensity.compact,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(roundness),
+            ),
+            elevation: 0,
+            backgroundColor: AppColor.primaryColor,
+            textStyle: TextStyle(
+              color: Colors.white,
+              fontFamily: Theme.of(context).textTheme.bodyText1?.fontFamily,
+              fontWeight: fontWeight,
+            ),
+            padding: padding,
+            minimumSize: const Size.fromHeight(50),
           ),
-          elevation: 0,
-          backgroundColor: AppColor.primaryColor,
-          textStyle: TextStyle(
-            color: Colors.white,
-            fontFamily: Theme.of(context).textTheme.bodyText1?.fontFamily,
-            fontWeight: fontWeight,
-          ),
-          padding: padding,
-          minimumSize: const Size.fromHeight(50),
-        ),
-        child: Stack(
-          fit: StackFit.passthrough,
-          children: <Widget>[
-            Center(
-              child: Text(
-                label,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: fontWeight,
+          child: Stack(
+            fit: StackFit.passthrough,
+            children: <Widget>[
+              Center(
+                child: Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: fontWeight,
+                  ),
                 ),
               ),
-            ),
-            if (trailingWidget != null)
-              Positioned(
-                top: 0,
-                right: 25,
-                child: trailingWidget!,
-              ),
-          ],
-        ),
-      ),
+              if (trailingWidget != null)
+                Positioned(
+                  top: 0,
+                  right: 25,
+                  child: trailingWidget!,
+                ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }

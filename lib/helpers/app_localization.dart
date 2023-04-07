@@ -15,6 +15,10 @@ class AppLocalization {
   static final Map<String, Map<String, String>> _localizedValues = {
     'en': {
       'Create Password': 'Create Password',
+      'language': 'Language',
+      'Delivery Address': 'Delivery Address',
+      'Invite Friends': 'Invite Friends',
+      'Settings': 'Settings',
       'Confirm Password': 'Confirm Password',
       'Enter your password': 'Enter your password',
       'Phone Number': 'Phone Number',
@@ -46,7 +50,8 @@ class AppLocalization {
       'Oil & Rice': 'Oil & Rice',
       'Beverages': 'Beverages',
       'Drinks': 'Drinks',
-      'orders': 'Orders',
+      'My Orders': 'My Orders',
+      'My orders': 'Orders',
       'my details': 'My Details',
       'delivery access': 'Delivery Aceess',
       'Payment Methods': 'Payment Methods',
@@ -66,10 +71,17 @@ class AppLocalization {
       'Home Appliances': 'Home Appliances',
       'No Favorite Items': 'No Favorite Items',
       'Enter Phone Number': 'Enter Phone Number',
-      'Full Name': 'Full Name'
+      'Full Name': 'Full Name',
+      'Terms of Services': 'Terms of Services'
     },
     'ml': {
+      'My Orders': 'എന്റെ ഉത്തരവുകൾ',
+      'language': 'ഭാഷ',
+      'Terms of Services': 'സേവന നിബന്ധനകൾ',
       'Create Password': 'പാസ്‌വേഡ് സൃഷ്‌ടിക്കുക',
+      'Delivery Address': 'ഡെലിവറി വിലാസം',
+      'Invite Friends': 'സുഹൃത്തുക്കളെ ക്ഷണിക്കുക',
+      'Settings': 'ക്രമീകരണങ്ങൾ',
       'Confirm Password': 'പാസ്വേഡ് സ്ഥിരീകരിക്കുക',
       'Enter your password': 'നിങ്ങളുടെ പാസ്‌വേഡ് നൽകുക',
       'Phone Number': 'ഫോൺ നമ്പർ',
@@ -125,7 +137,13 @@ class AppLocalization {
       'Full Name': 'പൂർണ്ണമായ പേര്'
     },
     'hi': {
+      'My Orders': 'मेरे आदेश',
+      'language': 'भाषा',
+      'Terms of Services': 'सेवाओं की शर्तें',
       'Create Password': 'पासवर्ड बनाएं',
+      'Delivery Address': 'डिलिवरी का पता',
+      'Invite Friends': 'मित्रों को आमंत्रित करें',
+      'Settings': 'समायोजन',
       'Confirm Password': 'पासवर्ड की पुष्टि कीजिये',
       'Enter your password': 'अपना कूटशब्द भरें',
       'Phone Number': 'फ़ोन नंबर',
@@ -180,7 +198,13 @@ class AppLocalization {
       'Full Name': 'पूरा नाम'
     },
     'ta': {
+      'My Orders': 'என் கட்டளைகள்',
+      'language': 'மொழி',
+      'Settings': 'அமைப்புகள்',
+      'Terms of Services': 'சேவை விதிமுறைகள்',
       'Create Password': 'கடவுச்சொல்லை உருவாக்கு',
+      'Delivery Address': 'விநியோக முகவரி',
+      'Invite Friends': 'நண்பர்களை அழைக்க',
       'Confirm Password': 'கடவுச்சொல்லை உறுதிப்படுத்தவும்',
       'Enter your password': 'உங்கள் கடவுச்சொல்லை உள்ளிடவும்',
       'Phone Number': 'தொலைபேசி எண்',
@@ -236,7 +260,13 @@ class AppLocalization {
       'Full Name': 'முழு பெயர்'
     },
     'gu': {
+      'My Orders': 'મારા ઓર્ડર',
+      'language': 'ભાષા',
+      'Settings': 'સેટિંગ્સ',
+      'Terms of Services': 'સેવાઓની શરતો',
       'Create Password': 'પાસવર્ડ બનાવો',
+      'Delivery Address': 'વિતરણ સરનામું',
+      'Invite Friends': 'મિત્રોને આમંત્રિત કરો',
       'Confirm Password': 'પાસવર્ડની પુષ્ટિ કરો',
       'Enter your password': 'તમારો પાસવર્ડ નાખો',
       'Phone Number': 'ફોન નંબર',

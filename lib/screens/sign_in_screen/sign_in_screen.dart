@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/common_widgets/custom_button_widget.dart';
 import 'package:grocery_app/controller/auth_controller.dart';
-import 'package:grocery_app/controller/language_controller.dart';
+import 'package:grocery_app/controller/localization_controller.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
 import 'package:grocery_app/helpers/app_sizes.dart';
 import 'package:grocery_app/screens/bottom_navigation_bar/bottom_navigation_widget.dart';
@@ -13,7 +13,7 @@ import 'package:grocery_app/styles/colors.dart';
 import 'package:provider/provider.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -117,7 +117,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     const SizedBox(
                       height: 50,
                     ),
-                    Consumer<LanguageController>(
+                    Consumer<LocalizationController>(
                       builder: (context, value, child) {
                         return Center(
                           child: Container(
@@ -142,7 +142,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               dropdownColor: Colors.white,
                               onChanged: (newValue) {
                                 print(newValue);
-                                value.changeLanguage(newValue!);
+                                value.changeLanguage(newValue, context);
                               },
                               items:
                                   value.languages.map<DropdownMenuItem<String>>(

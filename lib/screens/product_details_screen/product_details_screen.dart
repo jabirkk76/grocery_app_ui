@@ -1,35 +1,53 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, unused_local_variable, unnecessary_string_escapes
 
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_button.dart';
 import 'package:grocery_app/controller/product_detail_controller.dart';
 import 'package:grocery_app/models/grocery_model.dart';
+import 'package:grocery_app/screens/product_details_screen/widget/nutrition_widget.dart';
+import 'package:grocery_app/screens/product_details_screen/widget/rating_widget.dart';
 import 'package:grocery_app/widgets/item_counter_widget.dart';
 
 import 'package:provider/provider.dart';
 
+import '../../common_widgets/app_button.dart';
 import 'widget/favourite_toggle_icon_widget.dart';
+import 'widget/image_header_widget.dart';
+import 'widget/product_data_row_widget.dart';
 
-class ProductDetailsScreen extends StatelessWidget {
+class ProductDetailsScreen extends StatefulWidget {
   final GroceryItemModel groceryItem;
   final String? heroSuffix;
 
   const ProductDetailsScreen(this.groceryItem, {this.heroSuffix});
 
   @override
+  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+}
+
+class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  @override
+  void initState() {
+    final productDetailController =
+        Provider.of<ProductDetailController>(context, listen: false)
+            .checkUserDistanceFromPoint();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final productDetailController =
         Provider.of<ProductDetailController>(context, listen: false);
     double getTotalPrice() {
-      return productDetailController.amount * groceryItem.price;
+      return productDetailController.amount * widget.groceryItem.price;
     }
 
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            productDetailController.getImageHeaderWidget(
-                groceryItem, heroSuffix),
+            ImageHeaderWidget(
+                groceryItem: widget.groceryItem, heroSuffix: widget.heroSuffix),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -39,12 +57,12 @@ class ProductDetailsScreen extends StatelessWidget {
                       ListTile(
                         contentPadding: EdgeInsets.zero,
                         title: Text(
-                          groceryItem.name,
+                          widget.groceryItem.name,
                           style: const TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text(
-                          groceryItem.description,
+                          widget.groceryItem.description,
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -59,7 +77,7 @@ class ProductDetailsScreen extends StatelessWidget {
                           const ItemCounterWidget(),
                           const Spacer(),
                           Text(
-                            "\$${getTotalPrice().toStringAsFixed(2)}",
+                            "\₹${getTotalPrice().toStringAsFixed(2)}",
                             style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -69,18 +87,14 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                       const Spacer(),
                       const Divider(thickness: 1),
-                      productDetailController
-                          .getProductDataRowWidget("Product Details"),
+                      ProductDataRowWidget(label: 'Product Details'),
                       const Divider(thickness: 1),
-                      productDetailController.getProductDataRowWidget(
-                        "Nutritions",
-                        customWidget: productDetailController.nutritionWidget(),
-                      ),
+                      ProductDataRowWidget(
+                          label: "Nutritions",
+                          customWidget: const NutritionWidget()),
                       const Divider(thickness: 1),
-                      productDetailController.getProductDataRowWidget(
-                        "Review",
-                        customWidget: productDetailController.ratingWidget(),
-                      ),
+                      ProductDataRowWidget(
+                          label: "Review", customWidget: const RatingWidget()),
                       const Spacer(),
                       const AppButton(
                         label: "Add To Basket",

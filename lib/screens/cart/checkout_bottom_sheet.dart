@@ -3,13 +3,18 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/common_widgets/app_button.dart';
 import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:grocery_app/screens/cart/widget/divider_widget.dart';
+import 'package:grocery_app/screens/cart/widget/terms_and_conditions_agreement_widget.dart';
+
 
 import 'package:provider/provider.dart';
 
 import '../../controller/cart_controller.dart';
+import 'widget/check_out_row_widget.dart';
 
-// ignore: use_key_in_widget_constructors
 class CheckoutBottomSheet extends StatefulWidget {
+  const CheckoutBottomSheet({Key? key}) : super(key: key);
+
   @override
   _CheckoutBottomSheetState createState() => _CheckoutBottomSheetState();
 }
@@ -53,32 +58,31 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
           const SizedBox(
             height: 45,
           ),
-          cartController.getDivider(),
-          cartController.checkoutRow("Delivery", trailingText: "Select Method"),
-          cartController.getDivider(),
-          cartController.checkoutRow(
-            "Payment",
-            trailingWidget: const Icon(
-              Icons.payment,
-            ),
+          const DividerWidget(),
+          CheckOutRowWidget(
+            label: 'Delivery',
+            trailingText: 'Select Method',
           ),
-          cartController.getDivider(),
-          cartController.checkoutRow("Promo Code",
-              trailingText: "Pick Discount"),
-          cartController.getDivider(),
-          cartController.checkoutRow("Total Cost", trailingText: "\$13.97"),
-          cartController.getDivider(),
+          const DividerWidget(),
+          CheckOutRowWidget(
+            label: 'Payment',
+            trailingWidget: const Icon(Icons.payment),
+          ),
+          const DividerWidget(),
+          CheckOutRowWidget(label: 'Promo Code', trailingText: 'Pick Discount'),
+          const DividerWidget(),
+          CheckOutRowWidget(label: 'Total Cost', trailingText: "\$13.97"),
+          const DividerWidget(),
           const SizedBox(
             height: 30,
           ),
-          cartController.termsAndConditionsAgreement(context),
+          const TermsAndConditionsAgreementWidget(),
           Container(
             margin: const EdgeInsets.only(
               top: 25,
             ),
             child: AppButton(
               label: "Place Order",
-              // fontWeight: FontWeight.w600,
               padding: const EdgeInsets.symmetric(
                 vertical: 25,
               ),

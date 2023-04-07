@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
 import 'package:grocery_app/models/category_model.dart';
 import 'package:grocery_app/screens/category_items_screen/category_items_screen.dart';
 import 'package:grocery_app/screens/items__screen/items_screen.dart';
 import 'package:grocery_app/widgets/category_item_card_widget.dart';
 
-import '../widgets/search_bar_widget.dart';
 
 class ExploreScreenController with ChangeNotifier {
   List<Color> gridColors = [
@@ -74,42 +72,11 @@ class ExploreScreenController with ChangeNotifier {
     return categoryItemsDemo;
   }
 
-  Widget padded(Widget widget) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: widget,
-    );
-  }
-
   void navigateToItemScreen(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ItemsScreen(),
       ),
-    );
-  }
-
-  Widget getHeader(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 20,
-        ),
-        Center(
-          child: AppText(
-            text: AppLocalization.of(context)!.translate('Find Products'),
-          ),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        padded(
-          const SearchBarWidget(),
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-      ],
     );
   }
 

@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:grocery_app/controller/explore_screen_controller.dart';
+import 'package:grocery_app/screens/explore_screen/widget/header_widget.dart';
+
 
 import 'package:provider/provider.dart';
 
@@ -14,7 +16,7 @@ class ExploreScreen extends StatelessWidget {
         body: SafeArea(
       child: Column(
         children: [
-          exploreController.getHeader(context),
+          const HeaderWidget(),
           Expanded(
             child: exploreController.getStaggeredGridView(context),
           ),

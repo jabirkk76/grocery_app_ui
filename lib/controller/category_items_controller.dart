@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/models/grocery_model.dart';
 import 'package:grocery_app/screens/filter_screen/filter_screen.dart';
 
+
 import '../screens/product_details_screen/product_details_screen.dart';
 
 class CategoryItemsController with ChangeNotifier {

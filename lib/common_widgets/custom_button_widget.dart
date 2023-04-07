@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/styles/colors.dart';
 
+
 class CustomButtonWidget extends StatelessWidget {
   const CustomButtonWidget({
-    super.key,
+    Key? key,
     required this.text,
     required this.onTap,
-  });
+  }) : super(key: key);
   final String text;
   final void Function()? onTap;
   @override

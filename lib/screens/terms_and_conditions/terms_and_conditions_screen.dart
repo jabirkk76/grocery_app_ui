@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/helpers/app_sizes.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {
-  const TermsAndConditionsScreen({super.key});
+  const TermsAndConditionsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

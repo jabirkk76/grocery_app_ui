@@ -17,7 +17,7 @@ class LanguageHelper {
       case 'Tamil':
         convertedLocale = const Locale('ta', 'TA');
         break;
-      case 'Gujarathi':
+      case 'Gujarati':
         convertedLocale = const Locale('gu', 'GU');
         break;
       default:

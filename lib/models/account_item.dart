@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AccountItem {
-  final String label;
-  final String iconPath;
-  final Widget page;
+  final String? label;
 
-  AccountItem(this.label, this.iconPath, {required this.page});
+  final Widget page;
+  final Icon icon;
+
+  AccountItem({this.label, required this.page, required this.icon});
 }

@@ -3,28 +3,30 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/helpers/language_helper.dart';
 
-class LanguageController with ChangeNotifier {
+class LocalizationController with ChangeNotifier {
   String InitialLanguage = 'English';
   List<String> languages = [
     'English',
     'Malayalam',
     'Hindi',
     'Tamil',
-    'Gujarathi'
+    'Gujarati'
   ];
 
   Locale initialLanguageCode = const Locale('en');
 
   LanguageHelper languageHelper = LanguageHelper();
 
-  void changeLanguage(newLanguage) {
+  void changeLanguage(newLanguage, context) {
     print(newLanguage);
 
     Locale convertedLanguage;
 
     InitialLanguage = newLanguage;
     notifyListeners();
-
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.green,
+        content: Text('Your language has been changed')));
     convertedLanguage = languageHelper.nameToLocale(newLanguage);
     initialLanguageCode = convertedLanguage;
     notifyListeners();

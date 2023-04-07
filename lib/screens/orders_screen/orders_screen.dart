@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/helpers/app_sizes.dart';
 import 'package:grocery_app/styles/colors.dart';
 
+
 class OrdersScreen extends StatelessWidget {
-  const OrdersScreen({super.key});
+  const OrdersScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

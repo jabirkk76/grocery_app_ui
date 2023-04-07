@@ -11,7 +11,7 @@ import 'package:grocery_app/styles/colors.dart';
 import 'package:provider/provider.dart';
 
 class PasswordVerifyScreen extends StatelessWidget {
-  const PasswordVerifyScreen({super.key});
+  const PasswordVerifyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

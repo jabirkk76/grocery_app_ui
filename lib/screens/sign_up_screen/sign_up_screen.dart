@@ -6,14 +6,16 @@ import 'package:grocery_app/controller/auth_controller.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
 import 'package:grocery_app/helpers/app_sizes.dart';
 import 'package:grocery_app/styles/colors.dart';
+
 import 'package:intl_phone_field/intl_phone_field.dart';
+
 
 import 'package:provider/provider.dart';
 
 import '../password_verify_screen/password_verify_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

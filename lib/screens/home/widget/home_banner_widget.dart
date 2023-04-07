@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
 
+
 import '../../../styles/colors.dart';
 
 class HomeBannerWidget extends StatelessWidget {

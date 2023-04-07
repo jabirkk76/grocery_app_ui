@@ -1,22 +1,28 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, avoid_print, unused_local_variable
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:grocery_app/common_widgets/padding_widget.dart';
 import 'package:grocery_app/controller/home_controller.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
 import 'package:grocery_app/models/grocery_model.dart';
 import 'package:grocery_app/styles/colors.dart';
 import 'package:grocery_app/widgets/search_bar_widget.dart';
 
+
 import 'package:provider/provider.dart';
 
 import 'widget/grocery_featured_Item_widget.dart';
 import 'widget/home_banner_widget.dart';
+import 'widget/horizontal_item_slider_widget.dart';
+import 'widget/sub_title_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
+  @override
   Widget build(BuildContext context) {
     final homeController = Provider.of<HomeController>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -43,9 +49,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              homeController.padded(
-                const SearchBarWidget(),
-              ),
+              PaddingWidget(widget: const SearchBarWidget()),
               const SizedBox(
                 height: 25,
               ),
@@ -68,28 +72,31 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              homeController.padded(
-                homeController.subTitle(
-                    AppLocalization.of(context)!.translate('Exclusive Order')),
+              PaddingWidget(
+                widget: SubTitleWidget(
+                  text:
+                      AppLocalization.of(context)!.translate('Exclusive Order'),
+                ),
               ),
               const SizedBox(
                 height: 25,
               ),
-              homeController.getHorizontalItemSlider(exclusiveOffers),
+              HorizontalItemSliderWidget(items: exclusiveOffers),
               const SizedBox(
                 height: 15,
               ),
-              homeController.padded(
-                homeController.subTitle(
-                    AppLocalization.of(context)!.translate('Best Sell')),
+              PaddingWidget(
+                widget: SubTitleWidget(
+                  text: AppLocalization.of(context)!.translate('Best Sell'),
+                ),
               ),
-              homeController.getHorizontalItemSlider(bestSelling),
+              HorizontalItemSliderWidget(items: bestSelling),
               const SizedBox(
                 height: 15,
               ),
-              homeController.padded(
-                homeController.subTitle(
-                    AppLocalization.of(context)!.translate("Groceries")),
+              PaddingWidget(
+                widget: SubTitleWidget(
+                    text: AppLocalization.of(context)!.translate("Groceries")),
               ),
               const SizedBox(
                 height: 15,
@@ -123,7 +130,9 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              homeController.getHorizontalItemSlider(groceries),
+              HorizontalItemSliderWidget(
+                items: groceries,
+              ),
               const SizedBox(
                 height: 15,
               ),

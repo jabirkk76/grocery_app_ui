@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/controller/product_detail_controller.dart';
 
+
 import 'package:provider/provider.dart';
 
 class ItemCounterWidget extends StatefulWidget {
@@ -32,7 +33,6 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
                 onPressed: () {
                   if (value.amount > 0) {
                     value.decrementAmount();
-                    updateParent();
                   }
                 },
                 icon: const Icon(Icons.remove)),
@@ -53,7 +53,7 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
             child: IconButton(
                 onPressed: () {
                   value.incrementAmount();
-                  updateParent();
+                  // updateParent();
                 },
                 icon: const Icon(Icons.add)),
           ),
@@ -62,13 +62,13 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
     );
   }
 
-  void updateParent() {
-    final productDetailController =
-        Provider.of<ProductDetailController>(context, listen: false);
-    if (widget.onAmountChanged != null) {
-      widget.onAmountChanged!(productDetailController.amount);
-    }
-  }
+  // void updateParent() {
+  //   final productDetailController =
+  //       Provider.of<ProductDetailController>(context, listen: false);
+  //   if (widget.onAmountChanged != null) {
+  //     widget.onAmountChanged!(productDetailController.amount);
+  //   }
+  // }
 
   // Widget getText({
   //   required String text,

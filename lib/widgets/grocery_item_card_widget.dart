@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/models/grocery_model.dart';
 import 'package:grocery_app/styles/colors.dart';
+import 'package:share/share.dart';
 
 class GroceryItemCardWidget extends StatelessWidget {
   const GroceryItemCardWidget({
@@ -70,19 +71,28 @@ class GroceryItemCardWidget extends StatelessWidget {
                 addWidget()
               ],
             ),
-            Center(
-              child: SizedBox(
-                  width: 80,
-                  height: 25,
-                  child: Card(
-                    color: AppColor.primaryColor,
-                    // color:
-                    child: Center(
-                        child: Text(
-                      item.offer,
-                      style: const TextStyle(color: Colors.white),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                    width: 80,
+                    height: 25,
+                    child: Card(
+                      color: AppColor.primaryColor,
+                      // color:
+                      child: Center(
+                          child: Text(
+                        item.offer,
+                        style: const TextStyle(color: Colors.white),
+                      )),
                     )),
-                  )),
+                IconButton(
+                    onPressed: () async {
+                      await Share.share(
+                          'https://github.com/jabirkk76/money_saver');
+                    },
+                    icon: const Icon(Icons.share))
+              ],
             ),
           ],
         ),

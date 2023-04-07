@@ -3,10 +3,11 @@ import 'package:grocery_app/controller/on_board_controller.dart';
 import 'package:grocery_app/screens/sign_in_screen/sign_in_screen.dart';
 import 'package:grocery_app/styles/colors.dart';
 
+
 import 'package:provider/provider.dart';
 
 class OnBoardScreen extends StatelessWidget {
-  const OnBoardScreen({super.key});
+  const OnBoardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
