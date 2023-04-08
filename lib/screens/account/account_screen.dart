@@ -11,9 +11,6 @@ import 'package:grocery_app/screens/orders_screen/orders_screen.dart';
 
 import 'package:image_picker/image_picker.dart';
 
-
-
-
 import 'package:provider/provider.dart';
 
 import '../../controller/account_screen_controller.dart';
@@ -43,6 +40,9 @@ class _AccountScreenState extends State<AccountScreen> {
               child: Column(
                 children: [
                   Card(
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
                       color: const Color(0xffF2F3F2),
                       child: SizedBox(
                         height: 80,
@@ -69,6 +69,9 @@ class _AccountScreenState extends State<AccountScreen> {
                     height: 230,
                     width: double.maxFinite,
                     child: Card(
+                        elevation: 3,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
                         color: const Color(0xffF2F3F2),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
