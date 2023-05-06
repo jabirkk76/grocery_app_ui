@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/styles/colors.dart';
 
-
 class AccountItemWidget extends StatelessWidget {
   const AccountItemWidget(
       {Key? key, required this.label, required this.icon, required this.page})

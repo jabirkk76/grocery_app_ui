@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
-
 class ProductDetailController with ChangeNotifier {
   bool isNear = false;
 

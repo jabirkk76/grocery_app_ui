@@ -97,8 +97,12 @@ class _SignInScreenState extends State<SignInScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(AppLocalization.of(context)!
-                            .translate('Forgot password?')),
+                        TextButton(
+                            onPressed: () {
+                              authController.navigateForgotPassword(context);
+                            },
+                            child: Text(AppLocalization.of(context)!
+                                .translate('Forgot password?'))),
                       ],
                     ),
                     AppSizes.szdh20,
@@ -115,7 +119,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       },
                     ),
                     const SizedBox(
-                      height: 50,
+                      height: 20,
                     ),
                     Consumer<LocalizationController>(
                       builder: (context, value, child) {

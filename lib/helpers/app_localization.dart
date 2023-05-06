@@ -15,6 +15,7 @@ class AppLocalization {
   static final Map<String, Map<String, String>> _localizedValues = {
     'en': {
       'Create Password': 'Create Password',
+      "Search Store": "Search Store",
       'language': 'Language',
       'Delivery Address': 'Delivery Address',
       'Invite Friends': 'Invite Friends',
@@ -76,6 +77,7 @@ class AppLocalization {
     },
     'ml': {
       'My Orders': 'എന്റെ ഉത്തരവുകൾ',
+      "Search Store": "തിരയൽ സ്റ്റോർ",
       'language': 'ഭാഷ',
       'Terms of Services': 'സേവന നിബന്ധനകൾ',
       'Create Password': 'പാസ്‌വേഡ് സൃഷ്‌ടിക്കുക',
@@ -138,6 +140,7 @@ class AppLocalization {
     },
     'hi': {
       'My Orders': 'मेरे आदेश',
+      "Search Store": "खोज स्टोर",
       'language': 'भाषा',
       'Terms of Services': 'सेवाओं की शर्तें',
       'Create Password': 'पासवर्ड बनाएं',
@@ -149,7 +152,7 @@ class AppLocalization {
       'Phone Number': 'फ़ोन नंबर',
       'Terms & Conditions': 'नियम और शर्तें',
       'By Continue you' '\'re agreed to our':
-          'தொடர்வதன் மூலம் நீங்கள் எங்களுடையதை ஒப்புக்கொண்டீர்கள்',
+          'தொடர்வதன் மூலம் நீங்கள்தேடல் கடை எங்களுடையதை ஒப்புக்கொண்டீர்கள்',
       'Continue': 'जारी रखना',
       'Login': 'लॉग इन करें',
       'Enter- your emails and password': 'अपने ईमेल और पासवर्ड दर्ज करें',
@@ -192,13 +195,14 @@ class AppLocalization {
       'Health': 'स्वास्थ्य',
       'Baby Care': 'शिशु के देखभाल',
       'Home needs': 'घर की जरूरतें',
-      'Home Appliances': 'घरेलू उपकरण',
+      'Home Appliances': 'घरेलू उपकதேடல் கடைरण',
       'No Favorite Items': 'कोई पसंदीदा आइटम नहीं',
       'Enter Phone Number': 'फोन नंबर दर्ज',
       'Full Name': 'पूरा नाम'
     },
     'ta': {
       'My Orders': 'என் கட்டளைகள்',
+      "Search Store": "தேடல் கடை",
       'language': 'மொழி',
       'Settings': 'அமைப்புகள்',
       'Terms of Services': 'சேவை விதிமுறைகள்',
@@ -261,6 +265,7 @@ class AppLocalization {
     },
     'gu': {
       'My Orders': 'મારા ઓર્ડર',
+      "Search Store": "શોધ સ્ટોર",
       'language': 'ભાષા',
       'Settings': 'સેટિંગ્સ',
       'Terms of Services': 'સેવાઓની શરતો',

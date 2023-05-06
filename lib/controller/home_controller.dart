@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:grocery_app/models/grocery_model.dart';
 import 'package:grocery_app/screens/home/widget/home_banner_widget.dart';
+import 'package:grocery_app/screens/my_details_screen/my_details_screen.dart';
 import 'package:grocery_app/screens/product_details_screen/product_details_screen.dart';
 
 
+import '../screens/search_screen/search_screen.dart';
 import '../styles/colors.dart';
 
 class HomeController with ChangeNotifier {
@@ -26,5 +28,16 @@ class HomeController with ChangeNotifier {
         ),
       ),
     );
+  }
+
+  void navigateSearchScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => SearchScreen(),
+    ));
+  }
+    void navigateMyDetailScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => MyDetailsScreen(),
+    ));
   }
 }

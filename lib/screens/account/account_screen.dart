@@ -7,11 +7,15 @@ import 'package:grocery_app/helpers/app_localization.dart';
 import 'package:grocery_app/helpers/app_sizes.dart';
 import 'package:grocery_app/screens/delivery_address_screen/delivery_address_screen.dart';
 import 'package:grocery_app/screens/language_screen/language_screen.dart';
-import 'package:grocery_app/screens/orders_screen/orders_screen.dart';
+import 'package:grocery_app/screens/my_details_screen/my_details_screen.dart';
+import 'package:grocery_app/screens/my_orders_screen/my_orders_screen.dart';
+
+import 'package:grocery_app/styles/colors.dart';
 
 import 'package:image_picker/image_picker.dart';
 
 import 'package:provider/provider.dart';
+import 'package:share/share.dart';
 
 import '../../controller/account_screen_controller.dart';
 import 'widget/account_item_widget.dart';
@@ -51,16 +55,10 @@ class _AccountScreenState extends State<AccountScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             AccountItemWidget(
-                              icon: Icons.payment_rounded,
-                              label: AppLocalization.of(context)!
-                                  .translate("Payment Methods"),
-                              page: const OrdersScreen(),
-                            ),
-                            AccountItemWidget(
                               label: AppLocalization.of(context)!
                                   .translate('my details'),
                               icon: Icons.info_sharp,
-                              page: const OrdersScreen(),
+                              page: const MyDetailsScreen(),
                             ),
                           ],
                         ),
@@ -80,7 +78,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               label: AppLocalization.of(context)!
                                   .translate('My Orders'),
                               icon: Icons.info_sharp,
-                              page: const OrdersScreen(),
+                              page: const MyOrdersScreen(),
                             ),
                             AccountItemWidget(
                               icon: Icons.location_on_outlined,
@@ -89,22 +87,41 @@ class _AccountScreenState extends State<AccountScreen> {
                               page: const DeliveryAddressScreen(),
                             ),
                             AccountItemWidget(
-                              icon: Icons.notifications,
-                              label: AppLocalization.of(context)!
-                                  .translate("Notifications"),
-                              page: const OrdersScreen(),
-                            ),
-                            AccountItemWidget(
                               icon: Icons.settings,
                               label: AppLocalization.of(context)!
                                   .translate("language"),
                               page: const LanguageScreen(),
                             ),
-                            AccountItemWidget(
-                              icon: Icons.share,
-                              label: AppLocalization.of(context)!
-                                  .translate("Invite Friends"),
-                              page: const OrdersScreen(),
+                            // AccountItemWidget(
+                            //   icon: Icons.share,
+                            //   label: AppLocalization.of(context)!
+                            //       .translate("Invite Friends"),
+                            //   page: const OrdersScreen(),
+                            // ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: GestureDetector(
+                                onTap: () async {
+                                  await Share.share(
+                                      'https://github.com/jabirkk76/money_saver');
+                                },
+                                child: Row(
+                                  children: [
+                                    const SizedBox(width: 15),
+                                    Icon(
+                                      Icons.share,
+                                      color: AppColor.primaryColor,
+                                      size: 20,
+                                    ),
+                                    const SizedBox(width: 20),
+                                    Text(
+                                      'Invite Friends',
+                                      style: const TextStyle(
+                                          color: AppColor.primaryColor),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                           ],
                         )),

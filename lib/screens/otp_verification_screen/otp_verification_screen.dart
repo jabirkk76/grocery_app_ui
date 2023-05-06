@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/common_widgets/custom_button_widget.dart';
+import 'package:grocery_app/controller/otp_verification_controller.dart';
 import 'package:grocery_app/helpers/app_sizes.dart';
 import 'package:grocery_app/styles/colors.dart';
 
 import 'package:pinput/pinput.dart';
+import 'package:provider/provider.dart';
 
 class OtpVerificationScreen extends StatelessWidget {
   const OtpVerificationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final otpController = Provider.of<OtpController>(context, listen: false);
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -60,7 +63,12 @@ class OtpVerificationScreen extends StatelessWidget {
               AppSizes.szdh40,
               CustomButtonWidget(
                 text: 'Submit',
-                onTap: () {},
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: Colors.green,
+                      content: Center(child: Text('Otp verified ! Go ahead'))));
+                  otpController.navigateSignIn(context);
+                },
               )
             ],
           ),

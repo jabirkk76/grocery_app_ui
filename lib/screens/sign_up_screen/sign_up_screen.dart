@@ -1,14 +1,15 @@
 // ignore_for_file: unused_element
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/common_widgets/custom_button_widget.dart';
 import 'package:grocery_app/controller/auth_controller.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
 import 'package:grocery_app/helpers/app_sizes.dart';
+import 'package:grocery_app/screens/more_user_details_signup_screen/more_user_details_signup_screen.dart';
 import 'package:grocery_app/styles/colors.dart';
 
 import 'package:intl_phone_field/intl_phone_field.dart';
-
 
 import 'package:provider/provider.dart';
 
@@ -48,22 +49,41 @@ class SignUpScreen extends StatelessWidget {
                     AppLocalization.of(context)!.translate('credential'),
                   ),
                   AppSizes.szdh20,
-                  IntlPhoneField(
+                  TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      hintText: '********',
-                      labelText: AppLocalization.of(context)!
-                          .translate('Phone Number'),
+                      hintText: 'Mobile number',
+                      hintStyle: TextStyle(fontSize: 16),
+                      fillColor: const Color(0xffF2F2F7),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
+                        ),
+                      ),
+                      labelStyle: GoogleFonts.acme(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0x4c3c3c43),
+                      ),
+                    ),
+                    style: GoogleFonts.acme(
+                      fontSize: 20,
+                      height: 0.5,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
                     ),
                   ),
                   AppSizes.szdh20,
                   CustomButtonWidget(
                     text: AppLocalization.of(context)!.translate(
-                      'Continue',
+                      'Send Otp',
                     ),
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const PasswordVerifyScreen()));
+                          builder: (context) => MoreUserDetailSignUpScreen()));
                     },
                   ),
                   AppSizes.szdh40,

@@ -2,13 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/helpers/app_sizes.dart';
 import 'package:grocery_app/styles/colors.dart';
 
-
-class OrdersScreen extends StatelessWidget {
-  const OrdersScreen({Key? key}) : super(key: key);
+class MyOrdersScreen extends StatelessWidget {
+  const MyOrdersScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          'My Orders',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: AppColor.primaryColor),
+        ),
+      ),
       body: Center(
         child: SafeArea(
           child: Column(

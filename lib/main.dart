@@ -11,14 +11,21 @@ import 'package:grocery_app/controller/cart_controller.dart';
 import 'package:grocery_app/controller/category_items_controller.dart';
 import 'package:grocery_app/controller/delivery_address_controller.dart';
 import 'package:grocery_app/controller/explore_screen_controller.dart';
+import 'package:grocery_app/controller/forgot_password_controller.dart';
 import 'package:grocery_app/controller/home_controller.dart';
 import 'package:grocery_app/controller/item_controller.dart';
 import 'package:grocery_app/controller/language_screen_controller.dart';
 import 'package:grocery_app/controller/localization_controller.dart';
+import 'package:grocery_app/controller/my_detail_controller.dart';
 import 'package:grocery_app/controller/on_board_controller.dart';
+import 'package:grocery_app/controller/otp_verification_controller.dart';
 import 'package:grocery_app/controller/product_detail_controller.dart';
+import 'package:grocery_app/controller/search_screen_controller.dart';
 import 'package:grocery_app/controller/splash_controller.dart';
+import 'package:grocery_app/controller/verify_email_controller.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
+import 'package:grocery_app/screens/home/home_screen.dart';
+import 'package:grocery_app/screens/my_details_screen/my_details_screen.dart';
 import 'package:grocery_app/screens/splash_screen/splash_screen.dart';
 
 import 'package:provider/provider.dart';
@@ -78,10 +85,25 @@ class MyApp extends StatelessWidget {
               create: (context) => AuthController(),
             ),
             ChangeNotifierProvider(
+              create: (context) => VerifyEmailController(),
+            ),
+            ChangeNotifierProvider(
+              create: (context) => ForgotPasswordController(),
+            ),
+            ChangeNotifierProvider(
               create: (context) => DeliveryAddressController(),
             ),
             ChangeNotifierProvider(
               create: (context) => LanguageScreenController(),
+            ),
+            ChangeNotifierProvider(
+              create: (context) => OtpController(),
+            ),
+            ChangeNotifierProvider(
+              create: (context) => SearchController(),
+            ),
+            ChangeNotifierProvider(
+              create: (context) => MyDetailController(),
             ),
           ],
           child: MaterialApp(

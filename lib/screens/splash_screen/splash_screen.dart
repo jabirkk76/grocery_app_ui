@@ -29,10 +29,27 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 68.61,
-                width: 267.42,
-                child: Image.asset('assets/images/Group 1 .png'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.shopping_cart,
+                    color: Colors.white,
+                    size: 50,
+                  ),
+                  Text(
+                    'bestie',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 60,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+              Text(
+                'online groceriet',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 247, 243, 243), fontSize: 16),
               ),
             ],
           ),

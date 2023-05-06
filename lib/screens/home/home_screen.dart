@@ -2,13 +2,14 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/common_widgets/padding_widget.dart';
 import 'package:grocery_app/controller/home_controller.dart';
 import 'package:grocery_app/helpers/app_localization.dart';
+import 'package:grocery_app/helpers/app_sizes.dart';
 import 'package:grocery_app/models/grocery_model.dart';
+import 'package:grocery_app/screens/home/widget/grocery_name_widget.dart';
 import 'package:grocery_app/styles/colors.dart';
-import 'package:grocery_app/widgets/search_bar_widget.dart';
-
 
 import 'package:provider/provider.dart';
 
@@ -28,18 +29,29 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: SafeArea(
-          child: Column(
-            children: const [
-              Text(
-                "Khartoum,Sudan",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-            ],
+        leading: CircleAvatar(
+          backgroundImage: NetworkImage(
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              homeController.navigateMyDetailScreen(context);
+            },
+            child: Text('My Account'),
           ),
+        ],
+        title: Column(
+          children: [
+            Text(
+              'hello',
+              style: TextStyle(color: Colors.black, fontSize: 12),
+            ),
+            Text(
+              'Jabir K K',
+              style: TextStyle(color: Colors.black, fontSize: 15),
+            )
+          ],
         ),
       ),
       body: SafeArea(
@@ -49,10 +61,50 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              PaddingWidget(widget: const SearchBarWidget()),
+              // PaddingWidget(widget: const SearchBarWidget()),
+
+              GestureDetector(
+                onTap: () {
+                  homeController.navigateSearchScreen(context);
+                },
+                child: Container(
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 93, 55, 100),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ),
+                        Text(
+                            AppLocalization.of(context)!
+                                .translate("Search Store"),
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            )),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
               const SizedBox(
                 height: 25,
               ),
+
+              AppSizes.szdh20,
               CarouselSlider(
                   items: homeController.sliderImage
                       .map((e) =>
